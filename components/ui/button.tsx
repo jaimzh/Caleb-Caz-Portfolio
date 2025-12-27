@@ -22,6 +22,7 @@ const buttonVariants = cva(
         
         "caleb-variant": "bg-primary text-primary-foreground hover:opacity-90 shadow-md",
         "caleb-slide": "btn-caleb-slide",
+        "caleb-slide-reverse": "btn-caleb-slide-reverse",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -42,11 +43,14 @@ export default function Navbar() {
         <div className={`flex items-center justify-between px-6 py-3 transition-all duration-300 max-w-5xl mx-auto w-full rounded-full border border-text ${isScrolled ? "bg-bg-light/80 backdrop-blur-md shadow-sm" : "bg-bg-light shadow"}`}>
           
           {/* Logo */}
-          <Link href="https://prebuiltui.com">
-            <img
-              src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/dummyLogo/prebuiltuiDummyLogo.svg"
-              alt="Logo"
-              className="h-8 w-auto"
+          <Link href="/">
+            <Image
+              src="/images/Caleb logo round.svg"
+              alt="Caleb Caz Logo"
+              width={80}
+              height={80}
+              className="h-auto w-20"
+              priority
             />
           </Link>
           

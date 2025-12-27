@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${inter.variable} ${montserrat.variable} antialiased max-w-5xl mx-auto px-6 pt-8 `} 
+        className={` ${montserrat.variable} antialiased max-w-5xl mx-auto px-6 pt-8 `} 
       >
         <ThemeProvider
             attribute="class"
