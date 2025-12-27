@@ -1,22 +1,31 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
+import { Button } from "@/components/ui/button";
+import { Sun, Moon, Menu, X } from "lucide-react";
 
 // --- Configuration ---
 const NAV_LINKS = [
-  { name: 'Products', path: '/products' },
-  { name: 'Customer Stories', path: '/customer-stories' },
-  { name: 'Pricing', path: '/pricing' },
-  { name: 'Docs', path: '/docs' },
+  { name: 'About', path: '/products' },
+  { name: 'Demos', path: '/customer-stories' },
+  { name: 'Collaboration', path: '/pricing' },
+  { name: 'Contact', path: '/docs' },
 ];
 
 export default function Navbar() {
-  // We can use Next.js hook for pathname if needed for active states
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  // Handle mount
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Handle Scroll Effect
   useEffect(() => {
@@ -58,38 +67,23 @@ export default function Navbar() {
 
           {/* Right Side Actions */}
           <div className="flex items-center space-x-4">
-            <button className="size-8 flex items-center justify-center hover:bg-bg-dark transition border border-slate-300 rounded-md text-text">
-              <svg
-                width="15"
-                height="15"
-                viewBox="0 0 15 15"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M7.5 10.39a2.889 2.889 0 1 0 0-5.779 2.889 2.889 0 0 0 0 5.778M7.5 1v.722m0 11.556V14M1 7.5h.722m11.556 0h.723m-1.904-4.596-.511.51m-8.172 8.171-.51.511m-.001-9.192.51.51m8.173 8.171.51.511"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
-            <Link
-              className="hidden md:flex bg-primary text-primary-foreground px-5 py-2 rounded-full text-sm font-medium hover:opacity-90 transition"
-              href="#"
+            <button 
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="size-8 flex items-center justify-center hover:bg-bg-dark transition border border-text-muted rounded-md text-text cursor-pointer"
             >
-              Sign up
-            </Link>
+              <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+              <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            </button>
+            <Button asChild variant="caleb-slide" className="hidden md:inline-flex rounded-full px-5">
+              <Link href="#"><span>Sign up</span></Link>
+            </Button>
             
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMenuOpen(true)}
               className="md:hidden text-text-muted hover:text-primary transition"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+              <Menu className="w-6 h-6" />
             </button>
           </div>
         </div>
@@ -97,7 +91,7 @@ export default function Navbar() {
       
       {/* Mobile Menu Overlay */}
       <div 
-        className={`fixed inset-0 z-60 bg-white transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center justify-center gap-8 ${
+        className={`fixed inset-0 z-60 bg-bg-light transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center justify-center gap-8 ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -105,9 +99,7 @@ export default function Navbar() {
           onClick={() => setIsMenuOpen(false)}
           className="absolute top-6 right-6 text-text-muted hover:text-primary transition"
         >
-          <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
+          <X className="w-8 h-8" />
         </button>
 
         {NAV_LINKS.map((link) => (
@@ -122,14 +114,15 @@ export default function Navbar() {
           </Link>
         ))}
 
-        <div className="flex flex-col gap-4 mt-8">
-            <Link
-              className="bg-primary text-primary-foreground px-8 py-3 rounded-full text-lg font-medium hover:opacity-90 transition w-full text-center"
-              onClick={() => setIsMenuOpen(false)}
-              href="#"
+        <div className="flex flex-col gap-4 mt-8 w-full px-8">
+            <Button 
+                asChild 
+                variant="caleb-slide"
+                className="w-full rounded-full h-12 text-lg" 
+                onClick={() => setIsMenuOpen(false)}
             >
-              Sign up
-            </Link>
+              <Link href="#">Sign up</Link>
+            </Button>
         </div>
       </div>
     </>

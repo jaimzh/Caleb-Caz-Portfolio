@@ -1,8 +1,12 @@
+import About from '@/components/sections/about'
 import React from 'react'
 
 function page() {
   return (
-    <div>page</div>
+    <div className='min-h-screen   flex flex-col gap-16  items-center '>
+      <About />
+    </div>
+
   )
 }
 
