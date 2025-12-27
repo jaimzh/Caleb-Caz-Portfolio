@@ -45,11 +45,11 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/">
             <Image
-              src="/images/Caleb logo round.svg"
+              src="/images/cc.svg"
               alt="Caleb Caz Logo"
               width={80}
               height={80}
-              className="h-auto w-20"
+              className="h-auto w-10 dark:invert"
               priority
             />
           </Link>

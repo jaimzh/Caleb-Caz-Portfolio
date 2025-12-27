@@ -52,9 +52,10 @@ p, .p {
         @apply h-0.5 w-0 rounded-full bg-text  group-hover:w-full transition-all duration-300 ease-out;
     }
 
+   
 @layer components {
   .btn-caleb-slide {
-    @apply relative overflow-hidden bg-transparent border border-primary text-primary shadow-sm hover:text-primary-foreground transition-colors isolate;
+    @apply relative overflow-hidden bg-transparent border border-primary text-primary  hover:text-primary-foreground transition-colors isolate;
   }
 
   .btn-caleb-slide::before {
@@ -69,7 +70,7 @@ p, .p {
 
 
    .btn-caleb-slide-reverse {
-    @apply relative overflow-hidden   bg-text text-bg border border-primary  shadow-sm hover:text-text transition-colors isolate;
+    @apply relative overflow-hidden   bg-text text-bg border border-primary  hover:text-text transition-colors isolate;
   }
 
   .btn-caleb-slide-reverse::before {

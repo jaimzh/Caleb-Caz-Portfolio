@@ -20,7 +20,7 @@ const buttonVariants = cva(
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
         
-        "caleb-variant": "bg-primary text-primary-foreground hover:opacity-90 shadow-md",
+        "caleb-variant": "bg-primary text-primary-foreground hover:opacity-90",
         "caleb-slide": "btn-caleb-slide",
         "caleb-slide-reverse": "btn-caleb-slide-reverse",
       },
