@@ -7,10 +7,10 @@ import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { Sun, Moon, Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
 
-// --- Configuration ---
 const NAV_LINKS = [
-  { name: 'About', path: '/products' },
+  { name: 'About', path: '/about' },
   { name: 'Demos', path: '/customer-stories' },
   { name: 'Collaboration', path: '/pricing' },
   { name: 'Contact', path: '/docs' },
@@ -23,12 +23,10 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
-  // Handle mount
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Handle Scroll Effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -39,10 +37,8 @@ export default function Navbar() {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? "py-2" : "py-4 md:py-6"}`}>
-        <div className={`flex items-center justify-between px-6 py-3 transition-all duration-300 max-w-5xl mx-auto w-full rounded-full border border-text ${isScrolled ? "bg-bg-light/80 backdrop-blur-md shadow-sm" : "bg-bg-light shadow"}`}>
-          
-          {/* Logo */}
+      <header className={`navbar-header ${isScrolled ? "navbar-header-scrolled" : ""}`}>
+        <div className={`navbar-inner2 ${isScrolled ? "navbar-inner-scrolled" : ""}`}>
           <Link href="/">
             <Image
               src="/images/cc.svg"
@@ -53,8 +49,6 @@ export default function Navbar() {
               priority
             />
           </Link>
-          
-          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map((link) => (
               <Link 
@@ -63,26 +57,57 @@ export default function Navbar() {
                 className="group mt-1 flex flex-col gap-0.5 text-sm font-normal text-text-muted hover:text-text hover:font-semibold  transition-all duration-300 ease-out"
               >
                 {link.name}
-                {/* Underline Animation */}
+
                 <span className="expand-underline" />
               </Link>
             ))}
           </nav>
 
-          {/* Right Side Actions */}
+
           <div className="flex items-center space-x-4">
             <button 
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="size-8 flex items-center justify-center hover:bg-bg-dark transition border border-text-muted rounded-md text-text cursor-pointer"
+              className="size-9 flex items-center justify-center hover:bg-bg-dark transition-colors border border-text-muted rounded-full text-text cursor-pointer relative overflow-hidden"
+              aria-label="Toggle theme"
             >
-              <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+              <div className="relative size-5">
+                {mounted ? (
+                  <>
+                    <motion.div
+                      initial={false}
+                      animate={{ 
+                        rotate: theme === "dark" ? 0 : 90,
+                        scale: theme === "dark" ? 1 : 0,
+                        opacity: theme === "dark" ? 1 : 0
+                      }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      className="absolute inset-0 flex items-center justify-center"
+                    >
+                      <Moon className="size-5" />
+                    </motion.div>
+                    <motion.div
+                      initial={false}
+                      animate={{ 
+                        rotate: theme === "dark" ? -90 : 0,
+                        scale: theme === "dark" ? 0 : 1,
+                        opacity: theme === "dark" ? 0 : 1
+                      }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      className="absolute inset-0 flex items-center justify-center"
+                    >
+                      <Sun className="size-5" />
+                    </motion.div>
+                  </>
+                ) : (
+                  <div className="size-5" />
+                )}
+              </div>
             </button>
             <Button asChild variant="caleb-slide" className="hidden md:inline-flex rounded-full px-5">
               <Link href="#"><span>Sign up</span></Link>
             </Button>
             
-            {/* Mobile Menu Toggle */}
+
             <button
               onClick={() => setIsMenuOpen(true)}
               className="md:hidden text-text-muted hover:text-primary transition"
@@ -93,7 +118,7 @@ export default function Navbar() {
         </div>
       </header>
       
-      {/* Mobile Menu Overlay */}
+
       <div 
         className={`fixed inset-0 z-60 bg-bg-light transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center justify-center gap-8 ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
@@ -111,10 +136,10 @@ export default function Navbar() {
             key={link.name} 
             href={link.path}
             onClick={() => setIsMenuOpen(false)}
-            className="text-2xl font-medium text-text hover:text-primary transition-colors flex flex-col items-center group"
+            className="text-2xl font-medium text-text  transition-colors flex flex-col items-center group"
           >
             {link.name}
-            <span className="expand-underline mt-1" />
+            <span className="expand-underline " />
           </Link>
         ))}
 

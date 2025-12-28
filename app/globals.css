@@ -4,26 +4,37 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
 @layer base {
     :root {
         --bg: hsl(0, 0%, 95%);
-        --bg-light: hsl(0, 0%, 100%);
+        --bg-light: hsl(0, 0%, 96%);
+        --bg-lightest: hsl(0, 0%, 100%);
         --bg-dark: hsl(0, 0%, 90%);
 
         --text: hsl(0, 0%, 5%); 
         --text-muted: hsl(0, 0%, 30%); 
 
-        
-       
+        --border: hsl(0, 0%, 80%);
+        --highlight: hsl(0, 0%, 40%);
+        --shadow-color: rgba(0, 0, 0, 0.05);
+        --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
+        --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
     }
     .dark {
         --bg: hsl(0, 0%, 5%);
         --bg-light: hsl(0, 0%, 10%);
+        --bg-lightest: hsl(0, 0%, 10%);
         --bg-dark: hsl(0, 0%, 0%);
 
         --text: hsl(0, 0%, 95%); 
         --text-muted: hsl(0, 0%, 70%);  
       
+        --border: hsl(0, 0%, 30%);
+        --highlight: hsl(0, 0%, 50%);
+        --shadow-color: rgba(0, 0, 0, 0.4);
+        --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
+        --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
     }
 
    
@@ -52,7 +63,8 @@ p, .p {
         @apply h-0.5 w-0 rounded-full bg-text  group-hover:w-full transition-all duration-300 ease-out;
     }
 
-   
+}
+
 @layer components {
   .btn-caleb-slide {
     @apply relative overflow-hidden bg-transparent border border-primary text-primary  hover:text-primary-foreground transition-colors isolate;
@@ -78,17 +90,69 @@ p, .p {
     @apply absolute top-0 left-0 w-0 h-full bg-bg text-text -z-10 transition-[width] duration-300 ease-in-out;
   }
 
-  .btn-caleb-slide-reverse:hover::before { 
+   .btn-caleb-slide-reverse:hover::before { 
     @apply w-full;
   }
   
+.caleb-card {
+  @apply border border-border rounded-2xl bg-gradient p-6;
+  transition-property: transform, border-color, background-image;
+  transition-duration: 300ms;
+  transition-timing-function: ease-out;
+
+  /* Keep shadow, but do NOT animate it on theme toggle */
+  box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color);
+  will-change: transform;
 }
+
+.caleb-card:hover {
+  @apply bg-gradient-hover border-t-bg-lightest dark:border-t-highlight;
+  transform: translateY(-2px);
+
+
+  box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -4px var(--shadow-color);
 }
+
+  .navbar-header {
+    @apply fixed top-0 left-0 w-full z-50 transition-all duration-300 px-6 py-4 md:py-6;
+  }
+
+  .navbar-header-scrolled {
+    @apply py-2;
+  }
+
+  .navbar-inner {
+    @apply flex items-center justify-between px-6 py-3 transition-all duration-300 max-w-5xl mx-auto w-full rounded-full border border-text bg-bg-light shadow;
+  }
+
+  .navbar-inner-scrolled {
+    @apply bg-bg-light/80 backdrop-blur-md shadow-sm;
+  }
+
+
+
+
+  .navbar-inner2 {
+    @apply flex items-center justify-between px-6 py-3 transition-all duration-300 max-w-5xl mx-auto w-full rounded-full border border-border bg-gradient-hover border-t-bg-lightest  dark:border-t-highlight  shadow;
+  }
+  .navbar-card {
+    @apply border border-border rounded-full bg-gradient px-6 py-3 transition-all duration-300 ease-out;
+    box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color);
+  }
+
+  .navbar-card:hover {
+    @apply bg-gradient-hover border-t-bg-lightest dark:border-t-highlight;
+    box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -4px var(--shadow-color);
+    transform: translateY(-2px);
+  }
+}
+
 
 @theme {
     /* My custom colors the main stuff*/
     --color-bg: var(--bg);
     --color-bg-light: var(--bg-light);
+    --color-bg-lightest: var(--bg-lightest);
     --color-bg-dark: var(--bg-dark);
     --color-text: var(--text);
     --color-text-muted: var(--text-muted);
@@ -107,16 +171,31 @@ p, .p {
     --color-muted-foreground: var(--muted-foreground);
     --color-border: var(--border);
     --color-input: var(--input);
+    --color-highlight: var(--highlight);
+    
+    --background-image-gradient: var(--gradient);
+    --background-image-gradient-hover: var(--gradient-hover);
+    
     --color-ring: var(--ring);
     --color-card: var(--card);
     --color-card-foreground: var(--card-foreground);
 }
 
-body {
+
+
+
+
+html, body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
   background: var(--color-bg);
   color: var(--color-text);
- 
 }
+
+
 
 
 

@@ -26,7 +26,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning
+    
+    
+    >
       <body
         suppressHydrationWarning
         className={` ${montserrat.variable} antialiased max-w-8xl m-auto px-6 pt-8 `} 
@@ -35,7 +38,7 @@ export default function RootLayout({
             attribute="class"
             defaultTheme="system"
             enableSystem
-            disableTransitionOnChange
+           
           >
             <Navbar />
             <main className="pt-24">{children}</main>
