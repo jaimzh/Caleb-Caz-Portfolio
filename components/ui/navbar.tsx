@@ -22,7 +22,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -95,9 +95,9 @@ export default function Navbar() {
                     <motion.div
                       initial={false}
                       animate={{ 
-                        rotate: theme === "dark" ? 0 : 90,
-                        scale: theme === "dark" ? 1 : 0,
-                        opacity: theme === "dark" ? 1 : 0
+                        rotate: resolvedTheme === "dark" ? 0 : 90,
+                        scale: resolvedTheme === "dark" ? 1 : 0,
+                        opacity: resolvedTheme === "dark" ? 1 : 0
                       }}
                       transition={{ duration: 0.5, ease: "easeInOut" }}
                       className="absolute inset-0 flex items-center justify-center"
@@ -107,9 +107,9 @@ export default function Navbar() {
                     <motion.div
                       initial={false}
                       animate={{ 
-                        rotate: theme === "dark" ? -90 : 0,
-                        scale: theme === "dark" ? 0 : 1,
-                        opacity: theme === "dark" ? 0 : 1
+                        rotate: resolvedTheme === "dark" ? -90 : 0,
+                        scale: resolvedTheme === "dark" ? 0 : 1,
+                        opacity: resolvedTheme === "dark" ? 0 : 1
                       }}
                       transition={{ duration: 0.5, ease: "easeInOut" }}
                       className="absolute inset-0 flex items-center justify-center"
