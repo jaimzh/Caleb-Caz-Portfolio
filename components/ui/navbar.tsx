@@ -60,7 +60,7 @@ export default function Navbar() {
         <div className={`navbar-inner2 ${isScrolled ? "navbar-inner-scrolled" : ""}`}>
           <Link href="/" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
             <Image
-              src="/images/cc.svg"
+              src="/images/CC.svg"
               alt="Caleb Caz Logo"
               width={80}
               height={80}

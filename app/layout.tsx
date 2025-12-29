@@ -23,7 +23,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Portflio website",
+  title: "Portfolio website",
   description: "voice actor portfolio website for Caleb Caz",
 };
 
@@ -33,10 +33,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning
-    
-    
-    >
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <link
+          rel="preload"
+          href="/animations/Caleblogofile.lottie"
+          as="fetch"
+          type="application/octet-stream"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body
         suppressHydrationWarning
         className={` ${montserrat.variable} ${cedarville.variable} antialiased max-w-8xl m-auto px-6 pt-8 `} 
