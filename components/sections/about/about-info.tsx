@@ -13,11 +13,11 @@ export function AboutInfo() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="flex flex-col justify-center items-center gap-6 md:max-w-[40%] w-full md:m-4"
+      className="flex flex-col justify-center items-center gap-8 w-full md:items-start"
     >
       <motion.div 
         variants={itemVariants}
-        className="relative overflow-hidden w-[300px] h-[100px] md:w-full md:h-[120px] aspect-5/2 flex items-center justify-center"
+        className="relative overflow-hidden w-full max-w-[300px] h-[100px] md:max-w-full md:h-[120px] aspect-5/2 flex items-center justify-center"
       >
         <LottieAndSVG
           lottieSrc="/animations/Caleblogofile.lottie"
@@ -29,14 +29,14 @@ export function AboutInfo() {
 
       <motion.p 
         variants={itemVariants}
-        className="text-center font-semibold text-primary whitespace-pre-wrap"
+        className="text-center md:text-left font-semibold text-primary whitespace-pre-wrap w-full"
       >
         Voice Actor  ●  Sound Designer  ●  Singer 
       </motion.p>
 
       <motion.div 
         variants={itemVariants}
-        className="flex flex-col gap-4 text-base sm:text-lg leading-relaxed text-text-muted text-justify max-w-2xl"
+        className="flex flex-col gap-6 text-base leading-loose text-text-muted text-center md:text-left w-full tracking-wide"
       >
         <p>
           Caleb Caz is a New York–based voice actor specializing in 
@@ -60,10 +60,10 @@ export function AboutInfo() {
 
 
 
-      <div className="caleb-card">
+      {/* <div className="caleb-card">
   <h3>Testing the Effect</h3>
   <p>Hover over me to see the light hit the top border!</p>
-</div>
+</div> */}
     </motion.div>
   );
 }

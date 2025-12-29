@@ -44,15 +44,11 @@ h1, .h1 {
 }
   
 h2, .h2 {
-  @apply text-3xl font-semibold leading-tight;
+  @apply text-4xl font-semibold leading-tight lg:text-4xl;
 }
 
 p, .p {
-  @apply text-base font-normal leading-relaxed;
-}
-
-.p2 {
-  @apply text-lg font-normal leading-relaxed;
+  @apply text-base font-normal leading-relaxed text-text-muted lg:text-lg;
 }
 
 
@@ -82,12 +78,12 @@ p, .p {
 
 
    .btn-caleb-slide-reverse {
-    @apply relative overflow-hidden   bg-text text-bg border border-primary  hover:text-text transition-colors isolate;
+    @apply relative overflow-hidden    bg-text text-bg border border-primary  hover:text-text hover:delay-100 transition-colors isolate;
   }
 
   .btn-caleb-slide-reverse::before {
     content: "";
-    @apply absolute top-0 left-0 w-0 h-full bg-bg text-text -z-10 transition-[width] duration-300 ease-in-out;
+    @apply delay-100 absolute top-0 left-0 w-0 h-full bg-bg text-text -z-10 transition-[width] duration-300 ease-in-out;
   }
 
    .btn-caleb-slide-reverse:hover::before { 
@@ -133,18 +129,16 @@ p, .p {
 
 
   .navbar-inner2 {
-    @apply flex items-center justify-between px-6 py-3 transition-all duration-300 max-w-5xl mx-auto w-full rounded-full border border-border bg-gradient-hover border-t-bg-lightest  dark:border-t-highlight  shadow;
-  }
-  .navbar-card {
-    @apply border border-border rounded-full bg-gradient px-6 py-3 transition-all duration-300 ease-out;
-    box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color);
+    @apply flex items-center justify-between px-6 py-3 transition-all duration-300 max-w-5xl mx-auto w-full rounded-full border border-border bg-gradient-hover border-t-bg-lightest     dark:border-t-highlight  shadow;
   }
 
-  .navbar-card:hover {
-    @apply bg-gradient-hover border-t-bg-lightest dark:border-t-highlight;
-    box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -4px var(--shadow-color);
-    transform: translateY(-2px);
+
+  .navbar-inner2-scrolled {
+    @apply bg-red-500 backdrop-blur-md shadow-sm;
   }
+ 
+
+  
 }
 
 

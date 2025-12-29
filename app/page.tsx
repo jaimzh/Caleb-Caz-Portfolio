@@ -1,12 +1,27 @@
 import About from '@/components/sections/about'
+import Demos from '@/components/sections/demos'
+import Collaborations from '@/components/sections/collaborations'
+import Representation from '@/components/sections/representation'
+import Contact from '@/components/sections/contact'
+import { SectionDivider } from '@/components/ui/section-divider'
+import { Footer } from '@/components/ui/footer'
 import React from 'react'
 
 function page() {
   return (
-    <div className='min-h-screen   flex flex-col gap-16  items-center '>
+    <div className='relative min-h-screen flex flex-col items-center overflow-hidden'>
+     
       <About />
+      <SectionDivider />
+      <Demos />
+      <SectionDivider />
+      <Collaborations />  
+      <SectionDivider />
+      <Representation />
+      <SectionDivider />
+      <Contact />
+      <Footer />
     </div>
-
   )
 }
 

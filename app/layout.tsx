@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
-import { Inter, Montserrat, } from "next/font/google";
+import { Cedarville_Cursive, Inter, Montserrat, } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/ui/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Spotlight } from "@/components/ui/spotlight";
 
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+});
+
+const cedarville = Cedarville_Cursive({
+  variable: "--font-cedarville",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 const montserrat = Montserrat({
@@ -32,7 +39,7 @@ export default function RootLayout({
     >
       <body
         suppressHydrationWarning
-        className={` ${montserrat.variable} antialiased max-w-8xl m-auto px-6 pt-8 `} 
+        className={` ${montserrat.variable} ${cedarville.variable} antialiased max-w-8xl m-auto px-6 pt-8 `} 
       >
         <ThemeProvider
             attribute="class"
@@ -41,6 +48,8 @@ export default function RootLayout({
            
           >
             <Navbar />
+            {/* <Spotlight but not for now  /> */}
+            {/* <Spotlight /> */}
             <main className="pt-24">{children}</main>
         </ThemeProvider>
         

@@ -10,10 +10,11 @@ import { Sun, Moon, Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 
 const NAV_LINKS = [
-  { name: 'About', path: '/about' },
-  { name: 'Demos', path: '/customer-stories' },
-  { name: 'Collaboration', path: '/pricing' },
-  { name: 'Contact', path: '/docs' },
+  { name: 'About', id: 'about' },
+  { name: 'Demos', id: 'demos' },
+  { name: 'Collaborations', id: 'collaborations' },
+  { name: 'Representation', id: 'representation' },
+  { name: 'Contact', id: 'contact' },
 ];
 
 export default function Navbar() {
@@ -22,6 +23,24 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
+
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+    setIsMenuOpen(false);
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -39,7 +58,7 @@ export default function Navbar() {
     <>
       <header className={`navbar-header ${isScrolled ? "navbar-header-scrolled" : ""}`}>
         <div className={`navbar-inner2 ${isScrolled ? "navbar-inner-scrolled" : ""}`}>
-          <Link href="/">
+          <Link href="/" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
             <Image
               src="/images/cc.svg"
               alt="Caleb Caz Logo"
@@ -51,15 +70,15 @@ export default function Navbar() {
           </Link>
           <nav className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map((link) => (
-              <Link 
+              <a 
                 key={link.name} 
-                href={link.path}
+                href={`#${link.id}`}
+                onClick={(e) => scrollToSection(e, link.id)}
                 className="group mt-1 flex flex-col gap-0.5 text-sm font-normal text-text-muted hover:text-text hover:font-semibold  transition-all duration-300 ease-out"
               >
                 {link.name}
-
                 <span className="expand-underline" />
-              </Link>
+              </a>
             ))}
           </nav>
 
@@ -132,15 +151,15 @@ export default function Navbar() {
         </button>
 
         {NAV_LINKS.map((link) => (
-          <Link 
+          <a 
             key={link.name} 
-            href={link.path}
-            onClick={() => setIsMenuOpen(false)}
+            href={`#${link.id}`}
+            onClick={(e) => scrollToSection(e, link.id)}
             className="text-2xl font-medium text-text  transition-colors flex flex-col items-center group"
           >
             {link.name}
             <span className="expand-underline " />
-          </Link>
+          </a>
         ))}
 
         <div className="flex flex-col gap-4 mt-8 w-full px-8">
