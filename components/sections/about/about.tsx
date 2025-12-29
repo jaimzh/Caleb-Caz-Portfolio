@@ -22,7 +22,7 @@ export default function About() {
           <AboutImage />
 
           {/* Mobile overlay width master */}
-          <div className="flex justify-center items-center relative -mt-20 md:mt-0 md:static z-20 p-7 w-100 max-w-[500px] md:max-w-[600px] transition-all duration-500 ease-in-out">
+          <div className="flex justify-center items-center relative -mt-20 md:mt-0 md:static z-20 p-7        xs:w-[clamp(100%,90vw,600px)]  max-w-[500px] md:max-w-[600px] transition-all duration-500 ease-in-out">
             <AboutInfo />
           </div>
       
