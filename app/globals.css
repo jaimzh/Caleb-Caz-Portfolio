@@ -13,11 +13,15 @@
     --text: hsl(0, 0%, 5%);
     --text-muted: hsl(0, 0%, 30%);
 
-    --border: hsl(0, 0%, 80%);
-    --highlight: hsl(0, 0%, 40%);
+    
     --shadow-color: rgba(0, 0, 0, 0.05);
     --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
     --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
+    --gradient-hover-soft: linear-gradient(
+      0deg,
+      hsl(var(--bg) / 0.5),
+      hsl(var(--bg-light) / 0.5)
+    );
   }
   .dark {
     --bg: hsl(0, 0%, 5%);
@@ -28,11 +32,15 @@
     --text: hsl(0, 0%, 95%);
     --text-muted: hsl(0, 0%, 70%);
 
-    --border: hsl(0, 0%, 30%);
-    --highlight: hsl(0, 0%, 50%);
+    
     --shadow-color: rgba(0, 0, 0, 0.4);
     --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
     --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
+    --gradient-hover-soft: linear-gradient(
+      0deg,
+      hsl(var(--bg) / 1),
+      hsl(var(--bg-light) / 1)
+    );
   }
 
   /* TYPOGRAPHY STYLES */
@@ -59,55 +67,35 @@
 }
 
 @layer components {
-  /* Caleb Slide (outline -> filled) */
-  .btn-caleb-slide {
-    @apply relative overflow-hidden bg-transparent border border-primary text-primary
-           transition-colors isolate
-           hover:text-primary-foreground
-           active:text-primary-foreground
-           focus-visible:text-primary-foreground
-           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40;
+  .btn-caleb {
+    @apply inline-flex items-center justify-center
+           border border-primary
+           bg-text text-bg
+           rounded-xl
+           px-5 py-3
+           transition-all duration-300 ease-out
+
+
+           active:scale-95
+
+           hover:opacity-95 hover:scale-103;
   }
 
-  .btn-caleb-slide::before {
-    content: "";
-    @apply absolute top-0 left-0 w-0 h-full bg-text -z-10
-           transition-[width] duration-300 ease-in-out;
+  .btn-caleb2 {
+    @apply inline-flex items-center justify-center
+           border border-primary
+           bg-transparent text-text
+           rounded-xl
+           px-5 py-3
+           transition-all duration-300 ease-out
+
+
+           active:scale-95
+
+           hover:opacity-95 hover:scale-103;
   }
 
-  .btn-caleb-slide:hover::before,
-  .btn-caleb-slide:active::before,
-  .btn-caleb-slide:focus-visible::before {
-    @apply w-full;
-  }
-
-  /* Caleb Slide Reverse (filled -> alt filled) */
-  .btn-caleb-slide-reverse {
-    @apply relative overflow-hidden isolate border border-primary bg-text text-bg transition-colors duration-200;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-  }
-
-  .btn-caleb-slide-reverse::before {
-    content: "";
-    @apply absolute top-0 left-0 -z-10 h-full w-0 bg-bg transition-[width] duration-300 ease-in-out;
-    will-change: width;
-  }
-
-  /* Touch/press behaviour (mobile stable) */
-  .btn-caleb-slide-reverse:active {
-    @apply text-text-muted bg-bg-light;
-  }
-
-  /* Keyboard accessibility */
-  .btn-caleb-slide-reverse:focus-visible {
-    @apply outline-none ring-2 ring-primary/40;
-  }
-
-  .btn-caleb-slide-reverse:focus-visible::before {
-    @apply w-full;
-  }
-
+  
   /* Hover styles only when hover is real (desktop/trackpad/mouse) */
   @media (hover: hover) and (pointer: fine) {
     .btn-caleb-slide-reverse:hover {
@@ -117,8 +105,6 @@
     .btn-caleb-slide-reverse:hover::before {
       @apply w-full;
     }
-
-    
   }
   .caleb-card {
     @apply border border-border rounded-2xl bg-gradient p-6;
@@ -153,16 +139,18 @@
   }
 
   .navbar-inner-scrolled {
-    @apply bg-bg-light/80 backdrop-blur-md shadow-sm;
+    @apply bg-bg-light/80  backdrop-blur-md shadow-sm          border border-border   border-t-bg-lightest     
+    dark:border-t-highlight  ;
   }
 
   .navbar-inner2 {
-    @apply flex items-center justify-between px-6 py-3 transition-all duration-300 max-w-5xl mx-auto w-full rounded-full border border-border bg-gradient-hover border-t-bg-lightest     dark:border-t-highlight  shadow;
+    @apply flex items-center justify-between px-6 py-3 transition-all duration-300 max-w-5xl mx-auto w-full rounded-full 
+  
   }
 
-  .navbar-inner2-scrolled {
+  /* .navbar-inner2-scrolled {
     @apply bg-red-500 backdrop-blur-md shadow-sm;
-  }
+  } */
 }
 
 @theme {
@@ -175,6 +163,10 @@
   --color-text-muted: var(--text-muted);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-border: var(--border);
+  --color-highlight: var(--highlight);
+  --color-gradient-hover-soft: var(--gradient-hover-soft);
+  --color-gradient: var(--gradient);
 
   /* Shadcn colors i dont think this is necessary just formality for variants */
   --color-background: var(--background);

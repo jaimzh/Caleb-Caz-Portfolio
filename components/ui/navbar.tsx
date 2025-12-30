@@ -88,7 +88,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setTheme(isDark ? "light" : "dark")}
-              className="size-9 flex items-center justify-center hover:bg-bg-dark transition-colors border border-text-muted rounded-full text-text cursor-pointer relative overflow-hidden"
+              className="size-9 flex items-center justify-center hover:bg-bg-dark transition-all border border-text-muted rounded-full text-text cursor-pointer relative overflow-hidden active:scale-95 "
               aria-label="Toggle theme"
             >
               {/* Show SUN when currently dark (because clicking would switch to light),
@@ -128,7 +128,7 @@ export default function Navbar() {
               )}
             </button>
 
-            <Button asChild variant="caleb-slide" className="hidden md:inline-flex rounded-full px-5">
+            <Button asChild variant="btn-caleb2" className="hidden md:inline-flex rounded-full px-5">
               <Link href="#"><span>Sign up</span></Link>
             </Button>
 
@@ -173,7 +173,7 @@ export default function Navbar() {
         <div className="flex flex-col gap-4 mt-8 w-full px-8">
           <Button
             asChild
-            variant="caleb-slide"
+            variant="btn-caleb"
             className="w-full rounded-full h-12 text-lg"
             onClick={() => setIsMenuOpen(false)}
           >

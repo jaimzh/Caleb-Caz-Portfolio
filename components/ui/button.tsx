@@ -20,9 +20,11 @@ const buttonVariants = cva(
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
         
-        "caleb-variant": "bg-primary text-primary-foreground hover:opacity-90",
+        "caleb-variant": "bg-primary text-primary-foreground hover:opacity-90 transition-all active:scale-98",
         "caleb-slide": "btn-caleb-slide",
         "caleb-slide-reverse": "btn-caleb-slide-reverse",
+        "btn-caleb": "btn-caleb",
+        "btn-caleb2": "btn-caleb2",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",

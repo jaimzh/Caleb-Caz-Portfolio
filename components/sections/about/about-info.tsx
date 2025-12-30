@@ -51,7 +51,7 @@ export function AboutInfo() {
       <motion.div variants={itemVariants}>
         <Button
           className="px-10 py-6 rounded-full font-semibold"
-          variant="caleb-slide-reverse"
+          variant="btn-caleb"
           size="lg"
         >
           Contact Me
