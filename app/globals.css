@@ -62,33 +62,63 @@ p, .p {
 }
 
 @layer components {
+  /* Caleb Slide (outline -> filled) */
   .btn-caleb-slide {
-    @apply relative overflow-hidden bg-transparent border border-primary text-primary  hover:text-primary-foreground transition-colors isolate;
+    @apply relative overflow-hidden bg-transparent border border-primary text-primary
+           transition-colors isolate
+           hover:text-primary-foreground
+           active:text-primary-foreground
+           focus-visible:text-primary-foreground
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40;
   }
 
   .btn-caleb-slide::before {
     content: "";
-    @apply absolute top-0 left-0 w-0 h-full bg-text text-text -z-10 transition-[width] duration-300 ease-in-out;
+    @apply absolute top-0 left-0 w-0 h-full bg-text -z-10
+           transition-[width] duration-300 ease-in-out;
   }
 
-  .btn-caleb-slide:hover::before {
+  .btn-caleb-slide:hover::before,
+  .btn-caleb-slide:active::before,
+  .btn-caleb-slide:focus-visible::before {
     @apply w-full;
   }
 
+  /* Caleb Slide Reverse (filled -> alt filled) */
+  .btn-caleb-slide-reverse {
+    @apply relative overflow-hidden bg-text text-bg border border-primary
+           transition-all isolate
+            hover:text-text
+            active:text-text
 
-
-   .btn-caleb-slide-reverse {
-    @apply relative overflow-hidden    bg-text text-bg border border-primary  hover:text-text hover:delay-100 transition-colors isolate;
+           
+            focus-visible:text-text
+          
+         
+         
+           
   }
 
   .btn-caleb-slide-reverse::before {
+
     content: "";
-    @apply delay-100 absolute top-0 left-0 w-0 h-full bg-bg text-text -z-10 transition-[width] duration-300 ease-in-out;
+    @apply absolute top-0 left-0 w-0 h-full bg-bg -z-10
+           transition-[width] duration-300 ease-in-out ;
+
   }
 
-   .btn-caleb-slide-reverse:hover::before { 
+  .btn-caleb-slide-reverse:hover::before,
+  .btn-caleb-slide-reverse:focus-visible::before {
     @apply w-full;
   }
+
+
+  .btn-caleb-slide-reverse:active::before{
+    @apply w-0 text-red-700;
+  }
+
+
+
   
 .caleb-card {
   @apply border border-border rounded-2xl bg-gradient p-6;

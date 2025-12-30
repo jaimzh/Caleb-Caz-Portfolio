@@ -54,8 +54,7 @@ export default function RootLayout({
            
           >
             <Navbar />
-            {/* <Spotlight but not for now  /> */}
-            {/* <Spotlight /> */}
+        
             <main className="pt-24">{children}</main>
         </ThemeProvider>
         
