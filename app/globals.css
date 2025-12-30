@@ -83,23 +83,43 @@
 
   /* Caleb Slide Reverse (filled -> alt filled) */
   .btn-caleb-slide-reverse {
-    @apply relative overflow-hidden bg-text text-bg border border-primary
-           transition-all isolate
-        hover:text-text
-           active:text-text-muted;
+    @apply relative overflow-hidden isolate border border-primary bg-text text-bg transition-colors duration-200;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   .btn-caleb-slide-reverse::before {
     content: "";
-    @apply absolute top-0 left-0 w-0 h-full bg-bg -z-10
-           transition-[width] duration-300 ease-in-out;
+    @apply absolute top-0 left-0 -z-10 h-full w-0 bg-bg transition-[width] duration-300 ease-in-out;
+    will-change: width;
   }
 
-  .btn-caleb-slide-reverse:hover::before,
+  /* Touch/press behaviour (mobile stable) */
+  .btn-caleb-slide-reverse:active {
+    @apply text-text-muted bg-bg-light;
+  }
+
+  /* Keyboard accessibility */
+  .btn-caleb-slide-reverse:focus-visible {
+    @apply outline-none ring-2 ring-primary/40;
+  }
+
   .btn-caleb-slide-reverse:focus-visible::before {
     @apply w-full;
   }
 
+  /* Hover styles only when hover is real (desktop/trackpad/mouse) */
+  @media (hover: hover) and (pointer: fine) {
+    .btn-caleb-slide-reverse:hover {
+      @apply text-text;
+    }
+
+    .btn-caleb-slide-reverse:hover::before {
+      @apply w-full;
+    }
+
+    
+  }
   .caleb-card {
     @apply border border-border rounded-2xl bg-gradient p-6;
     transition-property: transform, border-color, background-image;
