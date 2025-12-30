@@ -7,11 +7,12 @@
   :root {
     --bg: hsl(0, 0%, 95%);
     --bg-light: hsl(0, 0%, 96%);
-    --bg-lightest: hsl(0, 0%, 100%);
+    --bg-lightest: hsl(244, 95%, 51%);
     --bg-dark: hsl(0, 0%, 90%);
 
     --text: hsl(0, 0%, 5%);
     --text-muted: hsl(0, 0%, 30%);
+    --highlightest:  hsl(0, 0%, 100%);
 
     
     --shadow-color: rgba(0, 0, 0, 0.05);
@@ -26,11 +27,13 @@
   .dark {
     --bg: hsl(0, 0%, 5%);
     --bg-light: hsl(0, 0%, 10%);
-    --bg-lightest: hsl(0, 0%, 10%);
+    --bg-lightest: hsl(0, 0%, 41%);
     --bg-dark: hsl(0, 0%, 0%);
 
     --text: hsl(0, 0%, 95%);
     --text-muted: hsl(0, 0%, 70%);
+
+    --highlightest: hsl(0, 0%, 44%);
 
     
     --shadow-color: rgba(0, 0, 0, 0.4);
@@ -119,7 +122,7 @@
   }
 
   .caleb-card:hover {
-    @apply bg-gradient-hover border-t-bg-lightest dark:border-t-highlight;
+    @apply bg-gradient-hover border-t-highlightest;
     transform: translateY(-2px);
 
     box-shadow: 0 10px 15px -3px var(--shadow-color),
@@ -139,8 +142,8 @@
   }
 
   .navbar-inner-scrolled {
-    @apply bg-bg-light/80  backdrop-blur-md shadow-sm          border border-border   border-t-bg-lightest     
-    dark:border-t-highlight  ;
+    @apply bg-bg-light/80  backdrop-blur-md shadow-sm     border border-border   border-t-highlightest     
+      ;
   }
 
   .navbar-inner2 {
@@ -164,7 +167,7 @@
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-border: var(--border);
-  --color-highlight: var(--highlight);
+  --color-highlightest: var(--highlightest);
   --color-gradient-hover-soft: var(--gradient-hover-soft);
   --color-gradient: var(--gradient);
 
@@ -180,7 +183,7 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
-  --color-highlight: var(--highlight);
+  
 
   --background-image-gradient: var(--gradient);
   --background-image-gradient-hover: var(--gradient-hover);
