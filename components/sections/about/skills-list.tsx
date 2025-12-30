@@ -1,4 +1,4 @@
-"use client"; // Add this if you are using Next.js App Router
+"use client"; 
 
 import React, { useEffect, useState } from "react";
 import { Mic2Icon, Headphones, Music4Icon } from "lucide-react";
@@ -26,7 +26,7 @@ export function SkillsList() {
 
     const handleMutation = (mutations: MutationRecord[]) => {
       mutations.forEach((mutation) => {
-        if (mutation.attributeName === "class") {
+        if (mutation.attributeName === "class" ) {
           checkTheme();
         }
       });
@@ -46,12 +46,13 @@ export function SkillsList() {
   if (!isMounted) return null;
 
   return (
-    <div className="w-[clamp(16rem,60vw,20rem)] bg-red-400">
+    <div className="w-[clamp(16rem,60vw,20rem)] ">
       <Marquee
         pauseOnHover={true}
         speed={40}
         gradient={true}
         gradientColor={gradientColor}
+        gradientWidth={100}
         autoFill={true}
       >
         {roles.map((role, index) => (
@@ -60,7 +61,7 @@ export function SkillsList() {
             className="inline-flex items-center gap-2 mx-4 whitespace-nowrap"
           >
             <role.icon className="size-4 shrink-0" />
-            <p>{role.label}</p>
+            <p className="font-semibold">{role.label}</p>
           </span>
         ))}
       </Marquee>

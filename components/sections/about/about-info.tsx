@@ -16,7 +16,7 @@ export function AboutInfo() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="flex flex-col justify-center items-center gap-6 w-full "
+      className="flex flex-col justify-center items-center gap-4 w-full "
     >
       <motion.div
         variants={itemVariants}
