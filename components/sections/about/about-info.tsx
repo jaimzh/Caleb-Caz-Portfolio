@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { LottieAndSVG } from "@/components/ui/lottie-and-svg";
 import { containerVariants, itemVariants } from "@/lib/animations";
+import { Headphones, Mic2Icon, Music4Icon } from "lucide-react";
 
 export function AboutInfo() {
   return (
@@ -23,16 +24,32 @@ export function AboutInfo() {
           lottieSrc="/animations/Caleblogofile.lottie"
           svgSrc="/images/Caleb logo round.svg"
           alt="Caleb Caz Logo"
-          className="w-full h-full scale-200 left-4 bottom-2"
+          className="w-full h-full scale-200 left-4 bottom-2 md:origin-right md:left-40 md:bottom-0"
         />
       </motion.div>
 
-      <motion.p 
-        variants={itemVariants}
-        className="text-center md:text-left font-semibold text-primary whitespace-pre-wrap w-full"
-      >
-        Voice Actor  ●  Sound Designer  ●  Singer 
-      </motion.p>
+      <motion.div
+  variants={itemVariants}
+  className="w-full text-xs md:text-base font-semibold text-primary"
+>
+  <div className="flex items-center justify-center md:justify-start gap-4 whitespace-nowrap">
+    <span className="inline-flex items-center gap-2">
+      <Mic2Icon className="size-4 shrink-0" />
+      <span>Voice Actor</span>
+    </span>
+
+    <span className="inline-flex items-center gap-2">
+      <Headphones className="size-4 shrink-0" />
+      <span>Sound Designer</span>
+    </span>
+
+    <span className="inline-flex items-center gap-2">
+      <Music4Icon className="size-4 shrink-0" />
+      <span>Singer</span>
+    </span>
+  </div>
+</motion.div>
+
 
       <motion.div 
         variants={itemVariants}
