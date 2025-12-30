@@ -59,7 +59,7 @@
 
   p,
   .p {
-    @apply  text-xs md:text-basefont-normal leading-relaxed text-text-muted lg:text-lg;
+    @apply  text-xs md:text-base    font-normal leading-relaxed text-text-muted lg:text-lg;
   }
 }
 
