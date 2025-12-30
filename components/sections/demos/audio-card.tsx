@@ -86,7 +86,7 @@ export function AudioCard({ audioSrc, title }: AudioCardProps) {
   };
 
   return (
-    <div className="caleb-card w-full max-w-md flex flex-col gap-3 group">
+    <div className="caleb-card  w-[clamp(20rem,40vw,24rem)]    flex flex-col gap-3 group">
       {title && (
         <span className="text-[10px] font-bold uppercase tracking-widest text-text-muted/60 ml-1">
           {title}

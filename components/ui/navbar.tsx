@@ -76,7 +76,7 @@ export default function Navbar() {
                 key={link.name}
                 href={`#${link.id}`}
                 onClick={(e) => scrollToSection(e, link.id)}
-                className="group mt-1 flex flex-col gap-0.5 text-sm font-normal text-text-muted hover:text-text hover:font-semibold transition-all duration-300 ease-out"
+                className="group mt-1 flex flex-col gap-0.5 text-sm font-normal text-text-muted hover:text-text  transition-all duration-300 ease-out"
               >
                 {link.name}
                 <span className="expand-underline" />

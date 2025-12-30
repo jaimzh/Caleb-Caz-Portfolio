@@ -34,7 +34,7 @@ export default function Demos() {
         </motion.div>
 
        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 w-full max-w-4xl">
+        <div className="grid items-center justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 w-full max-w-4xl">
             <motion.div variants={itemVariants}>
               <AudioCard 
                 title="Commercial Demo" 

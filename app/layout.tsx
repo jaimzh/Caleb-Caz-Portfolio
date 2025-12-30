@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/ui/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Spotlight } from "@/components/ui/spotlight";
+import { flyWheel, myUglyFont } from "@/components/ui/fonts-loader";
 
 
 const inter = Inter({
@@ -45,7 +46,7 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning
-        className={` ${montserrat.variable} ${cedarville.variable} antialiased max-w-8xl m-auto px-6 pt-8 `} 
+        className={` ${montserrat.variable} ${cedarville.variable} ${myUglyFont.variable}  ${flyWheel.variable}  antialiased max-w-8xl m-auto px-6 pt-8 `} 
       >
         <ThemeProvider
             attribute="class"

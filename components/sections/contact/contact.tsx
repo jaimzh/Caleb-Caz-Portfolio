@@ -2,7 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, Youtube, Instagram, Facebook } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
+import { SocialIcon } from "react-social-icons";
 import { fadeIn, staggerContainer } from "@/lib/animations";
 import { ContactForm } from "./contact-form";
 
@@ -20,7 +21,8 @@ export default function Contact() {
         <motion.div variants={fadeIn("up")} className="mb-12 md:mb-16">
           <h2 className="mb-6">Let&apos;s work together.</h2>
           <p className="text-text-muted max-w-2xl">
-            Ready to give your project a voice? Reach out for a quote, a custom audition, or just to say hello.
+            Ready to give your project a voice? Reach out for a quote, a custom
+            audition, or just to say hello.
           </p>
         </motion.div>
 
@@ -32,9 +34,12 @@ export default function Contact() {
           </motion.div>
 
           {/* Contact Info - Shows second on mobile, left on desktop */}
-          <motion.div variants={fadeIn("right")} className="space-y-6 order-2 md:order-1">
-            <a 
-              href="tel:315-480-2245" 
+          <motion.div
+            variants={fadeIn("right")}
+            className="space-y-6 order-2 md:order-1"
+          >
+            <a
+              href="tel:315-480-2245"
               className="flex items-center gap-4 text-xl font-medium text-text hover:text-primary transition-colors group w-fit"
             >
               <div className="p-3 rounded-2xl bg-bg-light border border-border group-hover:border-primary/30 transition-colors">
@@ -43,8 +48,8 @@ export default function Contact() {
               315-480-2245
             </a>
 
-            <a 
-              href="mailto:calebcazvo@gmail.com" 
+            <a
+              href="mailto:calebcazvo@gmail.com"
               className="flex items-center gap-4 text-xl font-medium text-text hover:text-primary transition-colors group w-fit"
             >
               <div className="p-3 rounded-2xl bg-bg-light border border-border group-hover:border-primary/30 transition-colors">
@@ -52,24 +57,34 @@ export default function Contact() {
               </div>
               calebcazvo@gmail.com
             </a>
-            
+
             <div className="flex gap-4 pt-4">
               {[
-                { icon: Youtube, href: "https://www.youtube.com/c/CalebCaz", label: "YouTube" },
-                { icon: Instagram, href: "https://www.instagram.com/calebcaz/", label: "Instagram" },
-                { icon: Facebook, href: "https://www.tiktok.com/@jinglesunchained?lang=en", label: "TikTok" },
-                { icon: Facebook, href: "https://www.facebook.com/JinglesUnchained", label: "Facebook" },
+                { url: "https://www.youtube.com/c/CalebCaz", label: "YouTube" },
+                {
+                  url: "https://www.instagram.com/calebcaz/",
+                  label: "Instagram",
+                },
+                {
+                  url: "https://www.tiktok.com/@jinglesunchained?lang=en",
+                  label: "TikTok",
+                },
+                {
+                  url: "https://www.facebook.com/JinglesUnchained",
+                  label: "Facebook",
+                },
               ].map((social, i) => (
-                <a
+                <div className="hover:scale-105 transition-transform" key={i}>
+                  <SocialIcon
                   key={i}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  url={social.url}
                   aria-label={social.label}
-                  className="p-3 border border-border rounded-full hover:bg-text hover:text-bg hover:border-text transition-all duration-300"
-                >
-                  <social.icon size={20} />
-                </a>
+                  style={{ height: 32, width: 32 }}
+                  bgColor= "var(--text)"
+                  fgColor="var(--bg)"
+                  className="mx-1"
+                />
+                </div>
               ))}
             </div>
           </motion.div>
