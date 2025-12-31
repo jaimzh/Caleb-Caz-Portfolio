@@ -27,6 +27,8 @@ export const Stroke = ({ className = "" }) => {
             
             // 2. Animate to full length when in view
             whileInView={{ pathLength: 1 }}
+
+            animate={{ pathLength: 1 }}
             
             // 3. THE MOBILE FIX: Lower threshold to 0.1
             viewport={{ once: true, amount: 0.1 }}
