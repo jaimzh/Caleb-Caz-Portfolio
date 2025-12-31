@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export const Stroke = ({className =  "stroke-blue"}) => {
+export const Stroke = ({className =  "stroke-black"}) => {
 
  
 
