@@ -11,10 +11,10 @@ import { Strokee } from "@/components/ui/strokke";
 export default function About() {
   return (
     <section id="about" className="w-full pt-0 md:py-20 px-6  ">
-      this is stroke 
+      {/* this is stroke 
       <Stroke className="text-green-500"/>
       this is strokkeeee
-      <Strokee className="text-red-500"/> 
+      <Strokee className="text-red-500"/>  */}
       <motion.div
         variants={staggerContainer(0.4)}
         initial="initial"

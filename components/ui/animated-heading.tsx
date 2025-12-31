@@ -23,7 +23,7 @@ export const AnimatedHeading = ({ heading, className }: AnimatedHeadingProps) =>
         {heading}
       </h2>
 {/* <Strokee className="text-red-500"/> */}
-      <Stroke className={` text-blue-500 scale-110 absolute z-20  top-8 ${className}`} />
+      <Stroke className={` text-text scale-110 absolute z-20  top-8 ${className}`} />
 </div>
 
     
