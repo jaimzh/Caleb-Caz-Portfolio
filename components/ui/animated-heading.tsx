@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Stroke } from "./stroke";
+import { Strokee } from "./strokke";
 
 
 
@@ -21,7 +22,7 @@ export const AnimatedHeading = ({ heading, className }: AnimatedHeadingProps) =>
   <h2 className="">
         {heading}
       </h2>
-
+<Strokee/>
       <Stroke className={` text-blue-500 scale-110 absolute z-20  top-4 ${className}`} />
 </div>
 
