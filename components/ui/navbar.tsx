@@ -61,7 +61,7 @@ export default function Navbar() {
             }}
           >
             <Image
-              src="/images/CC.svg"
+              src="/images/CC-2.svg"
               alt="Caleb Caz Logo"
               width={80}
               height={80}

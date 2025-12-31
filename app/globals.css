@@ -60,7 +60,7 @@
     font-weight: 500;
 
   }
-
+  
   p,
   .p {
     @apply  text-base md:text-base    font-normal leading-relaxed text-text-muted lg:text-lg;

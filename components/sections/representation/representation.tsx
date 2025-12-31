@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { AGENCIES } from "./data";
 import { RepresentationCard } from "./representation-card";
 import { staggerContainer, fadeIn, containerVariants, itemVariants } from "@/lib/animations";
+import { AnimatedHeading } from "@/components/ui/animated-heading";
 
 export default function Representation() {
   return (
@@ -19,7 +20,10 @@ export default function Representation() {
           className="flex flex-col items-center"
         >
           <motion.div variants={itemVariants} className="mb-16 text-center">
-            <h2 className="">Representation</h2>
+             <AnimatedHeading heading="Representation" />
+             <p className="max-w-2xl">
+            Details on my professional representation and the agencies that handle bookings and enquiries.
+          </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">

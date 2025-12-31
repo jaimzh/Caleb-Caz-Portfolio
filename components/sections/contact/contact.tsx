@@ -6,6 +6,7 @@ import { Mail, Phone } from "lucide-react";
 import { SocialIcon } from "react-social-icons";
 import { fadeIn, staggerContainer } from "@/lib/animations";
 import { ContactForm } from "./contact-form";
+import { AnimatedHeading } from "@/components/ui/animated-heading";
 
 export default function Contact() {
   return (
@@ -19,7 +20,7 @@ export default function Contact() {
       >
         {/* Header - Always on top */}
         <motion.div variants={fadeIn("up")} className="mb-12 md:mb-16">
-          <h2 className="mb-6">Let&apos;s work together.</h2>
+          <AnimatedHeading heading="Contact" />
           <p className="text-text-muted max-w-2xl">
             Ready to give your project a voice? Reach out for a quote, a custom
             audition, or just to say hello.

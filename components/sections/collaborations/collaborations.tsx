@@ -4,6 +4,7 @@ import React from 'react'
 import { motion } from "framer-motion";
 import { containerVariants, itemVariants } from "@/lib/animations";
 import BentoCollabs from "./bento-collabs";
+import { AnimatedHeading } from '@/components/ui/animated-heading';
 
 function Collaborations() {
   return (
@@ -19,7 +20,8 @@ function Collaborations() {
           variants={itemVariants}
           className="text-center flex flex-col items-center"
         >
-          <h2>Collaborations</h2>
+          
+          <AnimatedHeading heading="Collaborations" />
           <p className="max-w-2xl">
             A glimpse into the incredible projects and partners I&apos;ve had the pleasure of working with.
           </p>
