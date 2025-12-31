@@ -25,7 +25,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio website",
+  title: "Caleb Caz",
   description: "voice actor portfolio website for Caleb Caz",
 };
 
@@ -37,13 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* <link
-          rel="preload"
-          href="/animations/Caleblogofile.lottie"
-          as="fetch"
-          type="application/octet-stream"
-          crossOrigin="anonymous"
-        /> */}
+       
 
          <link
           rel="preload"

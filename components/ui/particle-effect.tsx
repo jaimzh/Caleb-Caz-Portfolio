@@ -89,18 +89,18 @@ export const ParticleEffect = () => {
  
 
     //  handle touch just in case but it is not necessary 
-    const handleTouch = (e: TouchEvent) => {
-        if(e.touches.length > 0){
-             createParticle(e.touches[0].clientX, e.touches[0].clientY);
-        }
-    }
+    // const handleTouch = (e: TouchEvent) => {
+    //     if(e.touches.length > 0){
+    //          createParticle(e.touches[0].clientX, e.touches[0].clientY);
+    //     }
+    // }
 
     document.addEventListener("click", handleClick, {capture: true});
-    document.addEventListener("touchstart", handleTouch, {capture: true}); 
+    // document.addEventListener("touchstart", handleTouch, {capture: true}); 
 
     return () => {
       document.removeEventListener("click", handleClick, { capture: true });
-      document.removeEventListener("touchstart", handleTouch, {capture: true});
+    //   document.removeEventListener("touchstart", handleTouch, {capture: true});
       
     };
   }, []);
