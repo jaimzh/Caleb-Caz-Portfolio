@@ -26,12 +26,12 @@ export function AboutInfo() {
 
 <SignatureStroke className="text-primary scale-130" />
         
-        {/* <LottieAndSVG
+        <LottieAndSVG
           lottieSrc="/animations/Caleblogofile.lottie"
           svgSrc="/images/Caleb logo round.svg"
           alt="Caleb Caz Logo "
           className="w-full h-full scale-200 left-4  "
-        /> */}
+        />
       </motion.div>
 
       <SkillsList />

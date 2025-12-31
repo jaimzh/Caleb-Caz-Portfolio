@@ -11,7 +11,9 @@ import { Strokee } from "@/components/ui/strokke";
 export default function About() {
   return (
     <section id="about" className="w-full pt-0 md:py-20 px-6  ">
+      this is stroke 
       <Stroke/>
+      this is strokkeeee
       <Strokee/> 
       <motion.div
         variants={staggerContainer(0.4)}
