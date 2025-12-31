@@ -9,7 +9,6 @@ import { Headphones, Mic2Icon, Music4Icon, Signature } from "lucide-react";
 import { RolesList } from "./roles-list";
 import { SkillsList } from "./skills-list";
 import { CalebSignatureStroke } from "./caleb-signature";
-import { SignatureStrokeImg } from "./signature-image";
 import { useScrollTo } from "@/hooks/useScrollTo";
 
 export function AboutInfo() {

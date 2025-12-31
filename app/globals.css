@@ -231,7 +231,7 @@
   }
 
   .navbar-inner-scrolled {
-    @apply bg-bg-light/80  backdrop-blur-md shadow-sm     border border-border   border-t-highlightest     
+    @apply bg-bg-light/80 backdrop-blur-md shadow-sm     border border-border   border-t-highlightest     
       ;
   }
 
@@ -240,9 +240,7 @@
   
   }
 
-  /* .navbar-inner2-scrolled {
-    @apply bg-red-500 backdrop-blur-md shadow-sm;
-  } */
+ 
 }
 
 @theme {
