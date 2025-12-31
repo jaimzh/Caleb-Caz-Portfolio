@@ -27,7 +27,7 @@ export function AboutInfo() {
         className="relative overflow-hidden w-full max-w-[300px] h-[100px] md:max-w-full md:h-[120px] aspect-5/2 flex items-center justify-center"
       >
 
-<SignatureStroke className="text-primary scale-130" />
+<SignatureStroke className="text-blue-500 scale-130" />
         
         <LottieAndSVG
           lottieSrc="/animations/Caleblogofile.lottie"
@@ -54,7 +54,7 @@ export function AboutInfo() {
           Jaimz Art and 360 Animations.
         </p>
       </motion.div>
- <SignatureStrokeImg className="absolute top-0 left-0 w-full h-full" />
+
       <motion.div variants={itemVariants}>
         <Button
           className="px-10 py-6 rounded-full font-semibold mt-4"

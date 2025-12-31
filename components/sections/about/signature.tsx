@@ -1,5 +1,5 @@
 
-export const SignatureStroke = ({ className = "text-black" }) => {
+export const SignatureStroke = ({ className = "" }) => {
   return (
     <svg
       width="100%"
