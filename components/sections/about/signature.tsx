@@ -1,4 +1,3 @@
-"use client";
 
 export const SignatureStroke = ({ className = "text-black" }) => {
   return (
@@ -26,7 +25,7 @@ export const SignatureStroke = ({ className = "text-black" }) => {
               fill="none" 
               strokeDasharray="103" 
               pathLength="100"
-              strokeDashoffset="103" /* <-- FIXED: Starts hidden */
+              strokeDashoffset="104" /* <-- FIXED: Starts hidden */
             >
               <animate 
                 attributeName="stroke-dashoffset" 
