@@ -10,8 +10,13 @@ import { RolesList } from "./roles-list";
 import { SkillsList } from "./skills-list";
 import { CalebSignatureStroke } from "./caleb-signature";
 import { SignatureStrokeImg } from "./signature-image";
+import { useScrollTo } from "@/hooks/useScrollTo";
 
 export function AboutInfo() {
+
+  const { scrollToId } = useScrollTo();
+
+ 
   return (
 
     
@@ -66,6 +71,9 @@ export function AboutInfo() {
           className="px-10 py-6 rounded-full font-semibold mt-4"
           variant="btn-caleb"
           size="lg"
+          onClick={() => {
+            scrollToId("contact", 80);
+          }}
         >
           Contact Me
         </Button>

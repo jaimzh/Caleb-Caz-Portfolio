@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/ui/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Spotlight } from "@/components/ui/spotlight";
+import { ParticleEffect } from "@/components/ui/particle-effect";
 import { flyWheel, myUglyFont } from "@/components/ui/fonts-loader";
 
 
@@ -64,6 +65,7 @@ export default function RootLayout({
             enableSystem
            
           >
+            <ParticleEffect />
             <Navbar />
         
             <main className="pt-24">{children}</main>

@@ -15,7 +15,7 @@ export const AGENCIES: Agency[] = [
     location: "Los Angeles, CA",
     phone: "(818) 123-4567",
     agent: "Sarah Jenkins",
-    url: "#",
+    url: "https://www.crownnorthtalentagency.com/",
     logo: "/images/agencies/crown-north.webp"
   },
   {
@@ -24,7 +24,7 @@ export const AGENCIES: Agency[] = [
     location: "New York, NY",
     phone: "(212) 987-6543",
     agent: "Michael Chen",
-    url: "#",
+    url: "https://www.helenwellsagency.com",
     logo: "/images/agencies/hwa-logo-white.webp"
   },
   {
@@ -33,7 +33,7 @@ export const AGENCIES: Agency[] = [
     location: "London, UK",
     phone: "+44 20 7123 4567",
     agent: "Emma Thompson",
-    url: "#",
+    url: "https://www.laulapidescompany.com/",
     logo: "/images/agencies/laulapidescompany.webp"
   }
 ];

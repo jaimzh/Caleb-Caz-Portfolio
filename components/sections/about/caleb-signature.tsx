@@ -6,17 +6,16 @@ import { useInView } from "framer-motion";
 export const CalebSignatureStroke = memo(({ className = "" }: { className?: string }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   
-  // High-precision trigger: starts when 20% of the signature is visible
+  
   const isInView = useInView(containerRef, { once: true, amount: 0.2 });
 
-  // Refs for native SVG animate elements
+
   const animRef1 = useRef<SVGAnimateElement>(null);
   const animRef2 = useRef<SVGAnimateElement>(null);
   const animRef3 = useRef<SVGAnimateElement>(null);
 
   useEffect(() => {
     if (isInView) {
-      // Direct call to Browser Animation Engine (Zero Lag)
       animRef1.current?.beginElement();
       animRef2.current?.beginElement();
       animRef3.current?.beginElement();
@@ -121,7 +120,7 @@ export const CalebSignatureStroke = memo(({ className = "" }: { className?: stri
   );
 });
 
-CalebSignatureStroke.displayName = "CalebSignatureStroke";
+// CalebSignatureStroke.displayName = "CalebSignatureStroke";
 
 
 

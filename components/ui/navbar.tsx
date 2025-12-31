@@ -8,7 +8,7 @@ import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
-import { useMounted } from "./useMounted"; // adjust path
+import { useMounted } from "../../hooks/useMounted"; // adjust path
 import { useScrollTo } from "@/hooks/useScrollTo";
 
 const NAV_LINKS = [
