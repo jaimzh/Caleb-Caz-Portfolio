@@ -13,6 +13,8 @@ import { SignatureStrokeImg } from "./signature-image";
 
 export function AboutInfo() {
   return (
+
+    
     <motion.div
       variants={containerVariants}
       initial="hidden"
@@ -33,7 +35,7 @@ export function AboutInfo() {
           alt="Caleb Caz Logo "
           className="w-full h-full scale-200 left-4  "
         />
-        <SignatureStrokeImg className="absolute top-0 left-0 w-full h-full" />
+       
       </motion.div>
 
       <SkillsList />
@@ -52,7 +54,7 @@ export function AboutInfo() {
           Jaimz Art and 360 Animations.
         </p>
       </motion.div>
-
+ <SignatureStrokeImg className="absolute top-0 left-0 w-full h-full" />
       <motion.div variants={itemVariants}>
         <Button
           className="px-10 py-6 rounded-full font-semibold mt-4"
