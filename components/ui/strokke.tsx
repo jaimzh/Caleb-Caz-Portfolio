@@ -23,6 +23,8 @@ export const Strokee = ({ className = "" }) => {
 
 
             initial={{ pathLength: 0 }}
+            whileInView={{ pathLength: 1 }}
+            viewport={{ once: true }}
              animate={{ pathLength: 1 }}
              transition ={
                 {
