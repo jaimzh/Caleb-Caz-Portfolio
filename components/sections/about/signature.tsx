@@ -24,8 +24,9 @@ export const SignatureStroke = ({ className = "text-black" }) => {
               strokeWidth="12.09px" 
               stroke="currentColor" 
               fill="none" 
-              strokeDasharray="102" 
+              strokeDasharray="103" 
               pathLength="100"
+              strokeDashoffset="103" /* <-- FIXED: Starts hidden */
             >
               <animate 
                 attributeName="stroke-dashoffset" 
@@ -48,6 +49,7 @@ export const SignatureStroke = ({ className = "text-black" }) => {
               fill="none" 
               strokeDasharray="102" 
               pathLength="101"
+              strokeDashoffset="102" /* <-- FIXED: Starts hidden */
             >
               <animate 
                 attributeName="stroke-dashoffset" 
@@ -68,8 +70,9 @@ export const SignatureStroke = ({ className = "text-black" }) => {
               strokeWidth="12.09px" 
               stroke="currentColor" 
               fill="none" 
-              strokeDasharray="102" 
+              strokeDasharray="103" 
               pathLength="100"
+              strokeDashoffset="103" /* <-- FIXED: Starts hidden */
             >
               <animate 
                 attributeName="stroke-dashoffset" 
