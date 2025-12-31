@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { useMounted } from "./useMounted"; // adjust path
+import { useScrollTo } from "@/hooks/useScrollTo";
 
 const NAV_LINKS = [
   { name: "About", id: "about" },
@@ -20,28 +21,38 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const { scrollToId } = useScrollTo();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const mounted = useMounted();
   const { setTheme, resolvedTheme } = useTheme();
+  
 
   const isDark = mounted && resolvedTheme === "dark";
 
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-    }
+    scrollToId(id, 80);
     setIsMenuOpen(false);
-  };
+  }
+
+
+
+  // const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  //   e.preventDefault();
+  //   const element = document.getElementById(id);
+  //   if (element) {
+  //     const offset = 80;
+  //     const bodyRect = document.body.getBoundingClientRect().top;
+  //     const elementRect = element.getBoundingClientRect().top;
+  //     const elementPosition = elementRect - bodyRect;
+  //     const offsetPosition = elementPosition - offset;
+
+  //     window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+  //   }
+  //   setIsMenuOpen(false);
+  // };
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -75,7 +86,7 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={`#${link.id}`}
-                onClick={(e) => scrollToSection(e, link.id)}
+                onClick={(e) => handleNavClick(e, link.id)}
                 className="group mt-1 flex flex-col gap-0.5 text-sm font-normal text-text-muted hover:text-text  transition-all duration-300 ease-out"
               >
                 {link.name}
@@ -128,14 +139,14 @@ export default function Navbar() {
               )}
             </button>
 
-            <Button asChild variant="btn-caleb2" className="hidden md:inline-flex rounded-full px-5">
-              <Link href="#"><span>Sign up</span></Link>
+            <Button asChild variant="btn-caleb2" className="hidden md:inline-flex rounded-full px-5" onClick={()=>{scrollToId("contact",80)}}>
+              <Link href="#"><span>Say hi</span></Link>
             </Button>
 
             <button
               type="button"
               onClick={() => setIsMenuOpen(true)}
-              className="md:hidden text-text-muted hover:text-primary transition"
+            className="md:hidden text-text-muted hover:text-primary transition"
               aria-label="Open menu"
             >
               <Menu className="w-6 h-6" />
@@ -162,7 +173,7 @@ export default function Navbar() {
           <a
             key={link.name}
             href={`#${link.id}`}
-            onClick={(e) => scrollToSection(e, link.id)}
+            onClick={(e) => handleNavClick(e, link.id)}
             className="text-2xl font-medium text-text transition-colors flex flex-col items-center group"
           >
             {link.name}
@@ -175,7 +186,10 @@ export default function Navbar() {
             asChild
             variant="btn-caleb"
             className="w-full rounded-full h-12 text-lg"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={() => {
+              setIsMenuOpen(false);
+              scrollToId("contact", 80);
+            }}
           >
             <Link href="#">Sign up</Link>
           </Button>

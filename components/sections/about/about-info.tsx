@@ -5,9 +5,10 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { LottieAndSVG } from "@/components/ui/lottie-and-svg";
 import { containerVariants, itemVariants } from "@/lib/animations";
-import { Headphones, Mic2Icon, Music4Icon } from "lucide-react";
+import { Headphones, Mic2Icon, Music4Icon, Signature } from "lucide-react";
 import { RolesList } from "./roles-list";
 import { SkillsList } from "./skills-list";
+import { SignatureStroke } from "./signature";
 
 export function AboutInfo() {
   return (
@@ -22,12 +23,15 @@ export function AboutInfo() {
         variants={itemVariants}
         className="relative overflow-hidden w-full max-w-[300px] h-[100px] md:max-w-full md:h-[120px] aspect-5/2 flex items-center justify-center"
       >
-        <LottieAndSVG
+
+<SignatureStroke className="text-primary scale-130" />
+        
+        {/* <LottieAndSVG
           lottieSrc="/animations/Caleblogofile.lottie"
           svgSrc="/images/Caleb logo round.svg"
-          alt="Caleb Caz Logo"
+          alt="Caleb Caz Logo "
           className="w-full h-full scale-200 left-4  "
-        />
+        /> */}
       </motion.div>
 
       <SkillsList />
