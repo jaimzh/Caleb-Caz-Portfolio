@@ -9,6 +9,7 @@ import { Headphones, Mic2Icon, Music4Icon, Signature } from "lucide-react";
 import { RolesList } from "./roles-list";
 import { SkillsList } from "./skills-list";
 import { SignatureStroke } from "./signature";
+import { SignatureStrokeImg } from "./signature-image";
 
 export function AboutInfo() {
   return (
@@ -32,6 +33,7 @@ export function AboutInfo() {
           alt="Caleb Caz Logo "
           className="w-full h-full scale-200 left-4  "
         />
+        <SignatureStrokeImg className="absolute top-0 left-0 w-full h-full" />
       </motion.div>
 
       <SkillsList />
