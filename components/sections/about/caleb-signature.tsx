@@ -1,5 +1,9 @@
 
-export const SignatureStroke = ({ className = "" }) => {
+
+
+
+
+export const CalebSignatureStroke =   ({ className = "" }) => {
   return (
     <svg
       width="100%"
@@ -16,7 +20,7 @@ export const SignatureStroke = ({ className = "" }) => {
       <g transform="matrix(0.587261, 0.00125205, -0.00107854, 0.505877, 67.5205, 7.93525)">
         <g transform="matrix(1.70282, 0, 0, 1.97676, -397.187, -215.749)">
           
-          {/* Path 1: Initial Scribble */}
+          
           <g transform="matrix(1,0,0,1,-25.6352,-1608.05)">
             <path 
               d="M 1013.14 1849.95 C 983.633 1738.47 826.777 1873.17 819.646 1989.8 C 815.937 2050.45 882.513 2056.6 933.333 2031.48 C 1052.13 1972.77 1026.34 1954.88 995.623 1978.66 C 952.003 2012.42 962.973 2040.63 987.013 2035.11 C 1007.54 2030.4 1019.68 1994.42 1025.9 1983.77 C 1024.19 1997.63 1008.03 2029.91 1018.84 2031.96 C 1029.63 2034.01 1052.42 1989.53 1046.63 1991.3 C 1050.49 1994.03 1095.71 1987.64 1105.81 1989.72 C 1121.95 1993.04 1045.14 2010.18 1042.84 2029.45 C 1042.22 2034.63 1108.76 2015.69 1116.02 2036.18" 
@@ -25,7 +29,7 @@ export const SignatureStroke = ({ className = "" }) => {
               fill="none" 
               strokeDasharray="103" 
               pathLength="100"
-              strokeDashoffset="104" /* <-- FIXED: Starts hidden */
+              strokeDashoffset="103" 
             >
               <animate 
                 attributeName="stroke-dashoffset" 
@@ -39,7 +43,7 @@ export const SignatureStroke = ({ className = "" }) => {
             </path>
           </g>
 
-          {/* Path 2: Underline */}
+        
           <g transform="matrix(0.999889,0.0149147,-0.0149147,0.999889,241.368,100.647)">
             <path 
               d="M 52.9004 379.242 C 389.611 328.528 752.918 336.083 848.175 345.738 C 759.503 349.851 556.798 350.911 385.886 364.192 C 284.143 372.099 193.668 384.336 145.221 404.126 C 282.011 386.693 503.451 366.609 533.01 370.25" 
@@ -48,7 +52,7 @@ export const SignatureStroke = ({ className = "" }) => {
               fill="none" 
               strokeDasharray="102" 
               pathLength="101"
-              strokeDashoffset="102" /* <-- FIXED: Starts hidden */
+              strokeDashoffset="102" 
             >
               <animate 
                 attributeName="stroke-dashoffset" 

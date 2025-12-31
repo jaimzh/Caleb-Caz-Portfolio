@@ -8,7 +8,7 @@ import { containerVariants, itemVariants } from "@/lib/animations";
 import { Headphones, Mic2Icon, Music4Icon, Signature } from "lucide-react";
 import { RolesList } from "./roles-list";
 import { SkillsList } from "./skills-list";
-import { SignatureStroke } from "./signature";
+import { CalebSignatureStroke } from "./caleb-signature";
 import { SignatureStrokeImg } from "./signature-image";
 
 export function AboutInfo() {
@@ -18,23 +18,29 @@ export function AboutInfo() {
     <motion.div
       variants={containerVariants}
       initial="hidden"
+      
       whileInView="visible"
       viewport={{ once: true }}
       className="flex flex-col justify-center items-center gap-4 w-full "
     >
       <motion.div
         variants={itemVariants}
+
+
+
+        
         className="relative overflow-hidden w-full max-w-[300px] h-[100px] md:max-w-full md:h-[120px] aspect-5/2 flex items-center justify-center"
       >
 
-<SignatureStroke className="text-blue-500 scale-130" />
+<CalebSignatureStroke className="text-text-500 scale-130" />
+
         
-        <LottieAndSVG
+        {/* <LottieAndSVG
           lottieSrc="/animations/Caleblogofile.lottie"
           svgSrc="/images/Caleb logo round.svg"
           alt="Caleb Caz Logo "
           className="w-full h-full scale-200 left-4  "
-        />
+        /> */}
        
       </motion.div>
 

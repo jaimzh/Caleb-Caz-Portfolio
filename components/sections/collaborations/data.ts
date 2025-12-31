@@ -36,7 +36,7 @@ export const COLLAB_DATA: BentoItem[] = [
     desc: 'Immersive sound design and vocal performance for stop motion animation.',
     thumbnail: getThumbnail('2FftRPSGVyw'),
     videoUrl: getEmbedUrl('2FftRPSGVyw'),
-    stats: 'Animation',
+    stats: 'Stop Motion',
     animationDirection: 'from-top' 
   },
   {
@@ -47,7 +47,7 @@ export const COLLAB_DATA: BentoItem[] = [
     desc: 'Character voicing and narrative storytelling for independent animation.',
     thumbnail: getThumbnail('nCatVCxD-UM'),
     videoUrl: getEmbedUrl('nCatVCxD-UM'),
-    stats: 'Short Film',
+    stats: 'Animmation',
     animationDirection: 'from-right' 
   },
   {

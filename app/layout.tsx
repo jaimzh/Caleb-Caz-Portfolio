@@ -36,11 +36,21 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link
+        {/* <link
           rel="preload"
           href="/animations/Caleblogofile.lottie"
           as="fetch"
           type="application/octet-stream"
+          crossOrigin="anonymous"
+        /> */}
+
+         <link
+          rel="preload"
+          href="/animations/Caleb logo round animated.svg"
+
+           as="image"
+          type="image/svg+xml"
+
           crossOrigin="anonymous"
         />
       </head>
