@@ -47,7 +47,7 @@ export const COLLAB_DATA: BentoItem[] = [
     desc: 'Character voicing and narrative storytelling for independent animation.',
     thumbnail: getThumbnail('nCatVCxD-UM'),
     videoUrl: getEmbedUrl('nCatVCxD-UM'),
-    stats: 'Animmation',
+    stats: 'Animation',
     animationDirection: 'from-right' 
   },
   {
