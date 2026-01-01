@@ -19,9 +19,9 @@ export default function Contact() {
         className="max-w-6xl mx-auto"
       >
         {/* Header - Always on top */}
-        <motion.div variants={fadeIn("up")} className="mb-12 md:mb-16">
+        <motion.div variants={fadeIn("up")} className="mb-12 md:mb-16 w-full flex flex-col items-center justify-centerr">
           <AnimatedHeading heading="Contact" />
-          <p className="text-text-muted max-w-2xl">
+          <p className="text-text-muted max-w-2xl ">
             Ready to give your project a voice? Reach out for a quote, a custom
             audition, or just to say hello.
           </p>
