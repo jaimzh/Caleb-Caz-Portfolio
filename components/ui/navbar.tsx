@@ -27,32 +27,19 @@ export default function Navbar() {
 
   const mounted = useMounted();
   const { setTheme, resolvedTheme } = useTheme();
-  
 
   const isDark = mounted && resolvedTheme === "dark";
 
-const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    id: string
+  ) => {
     e.preventDefault();
     scrollToId(id, 80);
     setIsMenuOpen(false);
-  }
+  };
 
 
-
-  // const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-  //   e.preventDefault();
-  //   const element = document.getElementById(id);
-  //   if (element) {
-  //     const offset = 80;
-  //     const bodyRect = document.body.getBoundingClientRect().top;
-  //     const elementRect = element.getBoundingClientRect().top;
-  //     const elementPosition = elementRect - bodyRect;
-  //     const offsetPosition = elementPosition - offset;
-
-  //     window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-  //   }
-  //   setIsMenuOpen(false);
-  // };
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -62,8 +49,16 @@ const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
 
   return (
     <>
-      <header className={`navbar-header ${isScrolled ? "navbar-header-scrolled" : ""}`}>
-        <div className={`navbar-inner2 ${isScrolled ? "navbar-inner-scrolled" : ""}`}>
+      <header
+        className={`navbar-header ${
+          isScrolled ? "navbar-header-scrolled" : ""
+        }`}
+      >
+        <div
+          className={`navbar-inner2 ${
+            isScrolled ? "navbar-inner-scrolled" : ""
+          }`}
+        >
           <Link
             href="/"
             onClick={(e) => {
@@ -102,13 +97,12 @@ const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
               className="size-9 flex items-center justify-center hover:bg-bg-dark transition-all border border-text-muted rounded-full text-text cursor-pointer relative overflow-hidden active:scale-95 "
               aria-label="Toggle theme"
             >
-              {/* Show SUN when currently dark (because clicking would switch to light),
-                  show MOON when currently light (because clicking would switch to dark). */}
+              
               {!mounted ? (
                 <span className="size-5" aria-hidden="true" />
               ) : (
                 <span className="relative size-5" aria-hidden="true">
-                  {/* SUN icon visible in dark mode */}
+                  
                   <motion.span
                     initial={false}
                     animate={{
@@ -122,7 +116,6 @@ const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
                     <Sun className="size-5" />
                   </motion.span>
 
-                  {/* MOON icon visible in light mode */}
                   <motion.span
                     initial={false}
                     animate={{
@@ -139,14 +132,23 @@ const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
               )}
             </button>
 
-            <Button asChild variant="btn-caleb2" className="hidden md:inline-flex rounded-full px-5" onClick={()=>{scrollToId("contact",80)}}>
-              <Link href="#"><span>Say hi</span></Link>
+            <Button
+              asChild
+              variant="btn-caleb2"
+              className="hidden md:inline-flex rounded-full px-5"
+              onClick={() => {
+                scrollToId("contact", 80);
+              }}
+            >
+              <Link href="#">
+                <span>Say hi</span>
+              </Link>
             </Button>
 
             <button
               type="button"
               onClick={() => setIsMenuOpen(true)}
-            className="md:hidden text-text-muted hover:text-primary transition"
+              className="md:hidden text-text-muted hover:text-primary transition"
               aria-label="Open menu"
             >
               <Menu className="w-6 h-6" />
@@ -154,9 +156,9 @@ const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
           </div>
         </div>
       </header>
-
+ {/* mobile  part*/}
       <div
-        className={`fixed inset-0 z-60 bg-bg-light transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center justify-center gap-8 ${
+        className={`fixed inset-0 z-60 bg-bg/95 transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center justify-center gap-8 ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
