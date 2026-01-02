@@ -13,8 +13,11 @@ import { AudioCard } from "@/components/sections/demos/audio-card";
 import { AnimatedHeading } from "@/components/ui/animated-heading";
 
 export default function Demos() {
-  const sampleAudio =
-    "https://github.com/rafaelreis-hotmart/Audio-Sample-files/raw/master/sample.mp3";
+  const commercialDemo =
+    "audio/CalebCasamento_CommercialDemo.mp3";
+
+    const animationDemo =
+      "audio/CalebCasamento_Animation Demo.mp3";
 
   return (
     <section id="demos" className="w-full px-6  py-6  ">
@@ -36,10 +39,10 @@ export default function Demos() {
 
         <div className="grid items-center justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 w-full max-w-4xl">
           <motion.div variants={itemVariants}>
-            <AudioCard title="Commercial Demo" audioSrc={sampleAudio} />
+            <AudioCard title="Commercial Demo" audioSrc={commercialDemo} />
           </motion.div>
           <motion.div variants={itemVariants}>
-            <AudioCard title="Animation Demo" audioSrc={sampleAudio} />
+            <AudioCard title="Animation Demo" audioSrc={animationDemo} />
           </motion.div>
         </div>
       </motion.div>
