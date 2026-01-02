@@ -8,8 +8,6 @@ export default function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
   const [mounted, setMounted] = useState(false);
 
-
-
   useEffect(() => {
     setMounted(true);
     const hasSeenLoader = sessionStorage.getItem("hasSeenLoader");
@@ -21,11 +19,9 @@ export default function Preloader() {
     const timer = setTimeout(() => {
       setIsLoading(false);
       sessionStorage.setItem("hasSeenLoader", "true");
-    }, 1200);
+    }, 12000);
 
     return () => clearTimeout(timer);
-
-
   }, []);
 
   if (!mounted) return null;
@@ -35,7 +31,7 @@ export default function Preloader() {
       {isLoading && (
         <motion.div
           key="preloader"
-          className="fixed inset-0 z-[9999] flex items-center justify-center w-full h-full bg-bg text-text"
+          className="fixed inset-0 z-9999 flex items-center justify-center w-full h-full bg-bg text-text"
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
