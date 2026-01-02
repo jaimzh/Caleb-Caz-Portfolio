@@ -92,7 +92,7 @@ export function AudioCard({ audioSrc, title }: AudioCardProps) {
           {title}
         </span>
       )}
-      
+
       <div className="flex items-center gap-4">
         {/* Hidden Audio Element */}
         <audio
@@ -137,9 +137,33 @@ export function AudioCard({ audioSrc, title }: AudioCardProps) {
         <div className="flex-1 flex flex-col justify-center gap-2 overflow-hidden">
           {/* The Waveform Visualizer */}
           <div
-            className="h-10 flex items-center gap-[3px] cursor-pointer touch-none select-none relative"
+            className="h-10 flex items-center gap-[3px] cursor-pointer touch-none select-none relative focus:outline-none focus-visible:ring-2 focus-visible:ring-text-muted "
             onClick={handleSeek}
-            title="Click to seek"
+            title="Click or use arrow keys to seek"
+            role="slider"
+            tabIndex={0}
+            aria-label="Audio progress"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={progress}
+            onKeyDown={(e) => {
+              const audio = audioRef.current;
+              if (!audio) return;
+
+              if (e.key === "ArrowRight") {
+                e.preventDefault();
+                audio.currentTime = Math.min(
+                  audio.duration,
+                  audio.currentTime + 5
+                );
+              } else if (e.key === "ArrowLeft") {
+                e.preventDefault();
+                audio.currentTime = Math.max(0, audio.currentTime - 5);
+              } else if (e.key === " " || e.key === "Enter") {
+                e.preventDefault();
+                togglePlay();
+              }
+            }}
           >
             {bars.map((height, index) => {
               const percentIndex = (index / bars.length) * 100;
@@ -150,7 +174,9 @@ export function AudioCard({ audioSrc, title }: AudioCardProps) {
                   key={index}
                   initial={false}
                   animate={{
-                    height: isPlaying ? `${height}%` : `${Math.max(15, height * 0.6)}%`,
+                    height: isPlaying
+                      ? `${height}%`
+                      : `${Math.max(15, height * 0.6)}%`,
                   }}
                   transition={{
                     type: "spring",

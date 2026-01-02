@@ -38,13 +38,7 @@ export function AboutInfo() {
 
 <CalebSignatureStroke className="text-text-500 scale-130" />
 
-        
-        {/* <LottieAndSVG
-          lottieSrc="/animations/Caleblogofile.lottie"
-          svgSrc="/images/Caleb logo round.svg"
-          alt="Caleb Caz Logo "
-          className="w-full h-full scale-200 left-4  "
-        /> */}
+      
        
       </motion.div>
 
@@ -77,10 +71,7 @@ export function AboutInfo() {
         </Button>
       </motion.div>
 
-      {/* <div className="caleb-card">
-  <h3>Testing the Effect</h3>
-  <p>Hover over me to see the light hit the top border!</p>
-</div> */}
+   
     </motion.div>
   );
 }
