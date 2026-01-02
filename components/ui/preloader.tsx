@@ -6,14 +6,29 @@ import Image from "next/image";
 
 export default function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
+  const [mounted, setMounted] = useState(false);
+
+
 
   useEffect(() => {
+    setMounted(true);
+    const hasSeenLoader = sessionStorage.getItem("hasSeenLoader");
+
+    if (hasSeenLoader) {
+      setIsLoading(false);
+      return;
+    }
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 800);
+      sessionStorage.setItem("hasSeenLoader", "true");
+    }, 1200);
 
     return () => clearTimeout(timer);
+
+
   }, []);
+
+  if (!mounted) return null;
 
   return (
     <AnimatePresence mode="wait">
