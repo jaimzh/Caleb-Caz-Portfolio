@@ -1,15 +1,18 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import Image from "next/image";
 
 export default function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isMounted, setIsMounted] = useState(false);
  
 
   useLayoutEffect(() => {
    
+    setIsMounted(true);
+    
     const hasSeenLoader = sessionStorage.getItem("hasSeenLoader");
 
     if (hasSeenLoader) {
@@ -24,7 +27,11 @@ export default function Preloader() {
     return () => clearTimeout(timer);
   }, []);
 
- 
+
+
+
+
+ if (!isMounted) return null;
 
   return (
     <AnimatePresence mode="wait">

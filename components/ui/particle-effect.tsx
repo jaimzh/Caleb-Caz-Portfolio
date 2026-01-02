@@ -65,7 +65,7 @@ export const ParticleEffect = () => {
         const thickness = 1.5;
         const offset = 10;
         line.style.height = `${thickness}px`;
-        line.style.transform = `rotate(${angle}rad)`;
+      
 
 
         line.style.setProperty("--angle", `${angle}rad`);
