@@ -14,7 +14,7 @@ export const AGENCIES: Agency[] = [
     name: "Crown North Talent",
     location: "Los Angeles, CA",
     phone: "(818) 123-4567",
-    agent: "Sarah Jenkins",
+    agent: "Tony Jima",
     url: "https://www.crownnorthtalentagency.com/",
     logo: "/images/agencies/crown-north.webp"
   },
@@ -32,7 +32,7 @@ export const AGENCIES: Agency[] = [
     name: "Lau Lapides Company",
     location: "London, UK",
     phone: "+44 20 7123 4567",
-    agent: "Emma Thompson",
+    agent: "Lau Lapides",
     url: "https://www.laulapidescompany.com/",
     logo: "/images/agencies/laulapidescompany.webp"
   }
