@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Cedarville_Cursive, Inter, Montserrat, } from "next/font/google";
+import { Cedarville_Cursive, Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/ui/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Spotlight } from "@/components/ui/spotlight";
 import { ParticleEffect } from "@/components/ui/particle-effect";
 import { flyWheel, myUglyFont } from "@/components/ui/fonts-loader";
-
+import Preloader from "@/components/ui/preloader";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -37,34 +37,25 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-       
-
-         <link
+        <link
           rel="preload"
           href="/animations/Caleb logo round animated.svg"
-
-           as="image"
+          as="image"
           type="image/svg+xml"
-
           crossOrigin="anonymous"
         />
       </head>
       <body
         suppressHydrationWarning
-        className={` ${montserrat.variable} ${cedarville.variable} ${myUglyFont.variable}  ${flyWheel.variable}  antialiased max-w-8xl m-auto px-6 pt-8 `} 
+        className={` ${montserrat.variable} ${cedarville.variable} ${myUglyFont.variable}  ${flyWheel.variable}  antialiased max-w-8xl m-auto px-6 pt-8 `}
       >
-        <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-           
-          >
-            <ParticleEffect />
-            <Navbar />
-        
-            <main className="pt-24">{children}</main>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Preloader />
+          <ParticleEffect />
+          <Navbar />
+
+          <main className="pt-24">{children}</main>
         </ThemeProvider>
-        
       </body>
     </html>
   );
