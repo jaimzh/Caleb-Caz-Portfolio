@@ -56,12 +56,11 @@ export function AboutInfo() {
         className="flex  text-base leading-loose text-text-muted text-center  w-full tracking-wide"
       >
         <p>
-          Caleb Caz is a New York–based voice actor specializing in audiobooks,
-          commercials, and video games. Beyond the mic, he crafts original music
-          jingles, immersive soundscapes, and foley that breathe life into every
-          project. Collaborations include industry names like Sling TV, Comical
+          Caleb Caz is a New York–based voice actor with a focus in audiobooks,
+          commercials video games, animations and more. Beyond the mic, he crafts original music
+          jingles, immersive soundscapes, and foley. Collaborations include industry names like Sling TV, Comical
           Realm Animations, and Slug Films, alongside viral creators such as
-          Jaimz Art and 360 Animations.
+          Jaimz Art, JollyShow and 360 Animations.
         </p>
       </motion.div>
 
