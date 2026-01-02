@@ -1,15 +1,15 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import Image from "next/image";
 
 export default function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
-  const [mounted, setMounted] = useState(false);
+ 
 
-  useEffect(() => {
-    setMounted(true);
+  useLayoutEffect(() => {
+   
     const hasSeenLoader = sessionStorage.getItem("hasSeenLoader");
 
     if (hasSeenLoader) {
@@ -24,13 +24,14 @@ export default function Preloader() {
     return () => clearTimeout(timer);
   }, []);
 
-  if (!mounted) return null;
+ 
 
   return (
     <AnimatePresence mode="wait">
       {isLoading && (
         <motion.div
           key="preloader"
+          data-lenis-prevent
           className="fixed inset-0 z-9999 flex items-center justify-center w-full h-full bg-bg text-text"
           initial={{ opacity: 1 }}
           exit={{
