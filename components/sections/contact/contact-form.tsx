@@ -11,6 +11,11 @@ const PROJECT_TYPES = ["Commercial", "Animation", "Narration", "Other"];
 export function ContactForm() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedType, setSelectedType] = useState("Commercial");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -26,8 +31,47 @@ export function ContactForm() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  async function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatus("idle");
+
+    const payload = {
+      name,
+      email,
+      projectType: selectedType,
+      message,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+     
+
+      if (data.ok) {
+        setStatus("success");
+        setName("");
+        setEmail("");
+        setMessage("");
+        setSelectedType("Commercial");
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error("SUBMISSION ERROR:", error);
+      setStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   return (
-    <form className="caleb-card space-y-6" onSubmit={(e) => e.preventDefault()}>
+    <form className="caleb-card space-y-6" onSubmit={onSubmit}>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div className="space-y-2">
           <label
@@ -39,6 +83,9 @@ export function ContactForm() {
           <input
             id="name"
             type="text"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             className="w-full bg-transparent border-b border-border py-2 focus:outline-none focus:border-text transition-colors placeholder:text-text/20 font-medium"
             placeholder="John Doe"
           />
@@ -53,6 +100,9 @@ export function ContactForm() {
           <input
             id="email"
             type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="w-full bg-transparent border-b border-border py-2 focus:outline-none focus:border-text transition-colors placeholder:text-text/20 font-medium"
             placeholder="john@company.com"
           />
@@ -134,21 +184,51 @@ export function ContactForm() {
         <textarea
           id="message"
           rows={4}
+          required
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
           className="w-full bg-transparent border-b border-border py-2 focus:outline-none focus:border-text transition-colors resize-none placeholder:text-text/20 font-medium"
           placeholder="Tell me about your script..."
         />
       </div>
 
-      <Button
-        variant="caleb-slide"
-        className="w-full sm:w-auto px-10 rounded-full group mt-4 h-12"
-      >
-        Send Message
-        <Send
-          size={18}
-          className="translate-x-0 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform ml-2"
-        />
-      </Button>
+      <div className="flex flex-col sm:flex-row items-center gap-4">
+        <Button
+          variant="caleb-slide"
+          disabled={isSubmitting}
+          className="w-full sm:w-auto px-10 rounded-full group mt-4 h-12"
+        >
+          {isSubmitting ? "Sending..." : "Send Message"}
+          <Send
+            size={18}
+            className={cn(
+              "ml-2 transition-transform",
+              isSubmitting
+                ? "animate-pulse"
+                : "translate-x-0 group-hover:translate-x-1 group-hover:-translate-y-1",
+            )}
+          />
+        </Button>
+
+        {status === "success" && (
+          <motion.p
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="text-green-500 font-medium text-sm mt-4 sm:mt-0"
+          >
+            Message sent successfully!
+          </motion.p>
+        )}
+        {status === "error" && (
+          <motion.p
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="text-red-500 font-medium text-sm mt-4 sm:mt-0"
+          >
+            Something went wrong. Please try again.
+          </motion.p>
+        )}
+      </div>
     </form>
   );
 }
