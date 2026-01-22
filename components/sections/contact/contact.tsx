@@ -18,7 +18,7 @@ export default function Contact() {
         viewport={{ once: true }}
         className="max-w-6xl mx-auto"
       >
-        {/* Header - Always on top */}
+       
         <motion.div variants={fadeIn("up")} className="mb-12 md:mb-16 w-full flex flex-col items-center justify-centerr">
           <AnimatedHeading heading="Contact" />
           <p className="text-text-muted max-w-2xl ">
@@ -27,14 +27,11 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        {/* Two Column Layout */}
         <div className="grid md:grid-cols-2 gap-16">
-          {/* Contact Form - Shows first on mobile, right on desktop */}
           <motion.div variants={fadeIn("left")} className="order-1 md:order-2">
             <ContactForm />
           </motion.div>
 
-          {/* Contact Info - Shows second on mobile, left on desktop */}
           <motion.div
             variants={fadeIn("right")}
             className="space-y-6 order-2 md:order-1"

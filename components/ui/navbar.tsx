@@ -4,11 +4,9 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
-import { Sun, Moon, Menu, X } from "lucide-react";
-import { motion } from "framer-motion";
-import { useMounted } from "../../hooks/useMounted"; // adjust path
+import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { useScrollTo } from "@/hooks/useScrollTo";
 
 const NAV_LINKS = [
@@ -25,11 +23,6 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const mounted = useMounted();
-  const { setTheme, resolvedTheme } = useTheme();
-
-  const isDark = mounted && resolvedTheme === "dark";
-
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     id: string
@@ -38,8 +31,6 @@ export default function Navbar() {
     scrollToId(id, 80);
     setIsMenuOpen(false);
   };
-
-
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -91,46 +82,7 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center space-x-4">
-            <button
-              type="button"
-              onClick={() => setTheme(isDark ? "light" : "dark")}
-              className="size-9 flex items-center justify-center hover:bg-bg-dark transition-all border border-text-muted rounded-full text-text cursor-pointer relative overflow-hidden active:scale-95 "
-              aria-label="Toggle theme"
-            >
-              
-              {!mounted ? (
-                <span className="size-5" aria-hidden="true" />
-              ) : (
-                <span className="relative size-5" aria-hidden="true">
-                  
-                  <motion.span
-                    initial={false}
-                    animate={{
-                      rotate: isDark ? 0 : 90,
-                      scale: isDark ? 1 : 0,
-                      opacity: isDark ? 1 : 0,
-                    }}
-                    transition={{ duration: 0.35, ease: "easeInOut" }}
-                    className="absolute inset-0 flex items-center justify-center"
-                  >
-                    <Sun className="size-5" />
-                  </motion.span>
-
-                  <motion.span
-                    initial={false}
-                    animate={{
-                      rotate: isDark ? -90 : 0,
-                      scale: isDark ? 0 : 1,
-                      opacity: isDark ? 0 : 1,
-                    }}
-                    transition={{ duration: 0.35, ease: "easeInOut" }}
-                    className="absolute inset-0 flex items-center justify-center"
-                  >
-                    <Moon className="size-5" />
-                  </motion.span>
-                </span>
-              )}
-            </button>
+            <ThemeToggle />
 
             <Button
               asChild
@@ -156,7 +108,7 @@ export default function Navbar() {
           </div>
         </div>
       </header>
- {/* mobile  part*/}
+      {/* mobile  part*/}
       <div
         className={`fixed inset-0 z-60 bg-bg/95 transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center justify-center gap-8 ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
