@@ -53,7 +53,7 @@ export default function Equipment() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="flex flex-col items-center p-8 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-colors group"
+                className="caleb-card group flex flex-col items-center p-8"
               >
                 <div className="mb-4 p-4 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors">
                   <item.icon className="size-8 text-primary" />
