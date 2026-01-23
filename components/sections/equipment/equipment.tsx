@@ -42,6 +42,10 @@ export default function Equipment() {
         >
           <motion.div variants={itemVariants} className="mb-16 text-center">
             <AnimatedHeading heading="Equipment" />
+            <p className="text-text-muted max-w-2xl mx-auto mt-4">
+              A list of the professional equipment and software I use for my
+              recordings.
+            </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
