@@ -19,7 +19,8 @@ export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  
+  //honeypot hehehe
+  const [company, setCompany] = useState("");
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -44,6 +45,7 @@ export function ContactForm() {
       email: email.trim(),
       projectType: selectedType,
       message: message.trim(),
+      company
     };
 
     try {
@@ -76,6 +78,18 @@ export function ContactForm() {
     <form className="caleb-card space-y-6" onSubmit={onSubmit}>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div className="space-y-2">
+          {/* honeypot hehehe */}
+          <div className="hidden">
+            <label htmlFor="company">Company</label>
+            <input
+              id="company"
+              name="company"
+              type="text"
+              value={company}
+              onChange={(e) => setCompany(e.target.value)}
+            />
+          </div>
+
           <label
             className="text-xs font-bold uppercase tracking-widest text-text-muted"
             htmlFor="name"

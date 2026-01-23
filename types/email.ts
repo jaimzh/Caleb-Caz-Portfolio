@@ -3,4 +3,5 @@ export interface EmailTemplateProps {
   email: string;
   projectType: string;
   message: string;
+  company?: string; // honeypot hehe
 }
