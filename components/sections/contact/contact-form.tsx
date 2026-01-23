@@ -5,6 +5,7 @@ import { Send, ChevronDown, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { EmailTemplateProps } from "@/types/email";
 
 const PROJECT_TYPES = ["Commercial", "Animation", "Narration", "Other"];
 
@@ -17,6 +18,8 @@ export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -36,11 +39,11 @@ export function ContactForm() {
     setIsSubmitting(true);
     setStatus("idle");
 
-    const payload = {
-      name,
-      email,
+    const payload: EmailTemplateProps = {
+      name: name.trim(),
+      email: email.trim(),
       projectType: selectedType,
-      message,
+      message: message.trim(),
     };
 
     try {
@@ -51,7 +54,6 @@ export function ContactForm() {
       });
 
       const data = await res.json();
-     
 
       if (data.ok) {
         setStatus("success");
@@ -194,6 +196,7 @@ export function ContactForm() {
 
       <div className="flex flex-col sm:flex-row items-center gap-4">
         <Button
+          type="submit"
           variant="caleb-slide"
           disabled={isSubmitting}
           className="w-full sm:w-auto px-10 rounded-full group mt-4 h-12"
@@ -202,7 +205,7 @@ export function ContactForm() {
           <Send
             size={18}
             className={cn(
-              "ml-2 transition-transform",
+              "ml-1 mt-1 transition-transform",
               isSubmitting
                 ? "animate-pulse"
                 : "translate-x-0 group-hover:translate-x-1 group-hover:-translate-y-1",
