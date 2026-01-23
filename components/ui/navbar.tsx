@@ -14,6 +14,7 @@ const NAV_LINKS = [
   { name: "Demos", id: "demos" },
   { name: "Collaborations", id: "collaborations" },
   { name: "Representation", id: "representation" },
+  { name: "Equipment", id: "equipment" },
   { name: "Contact", id: "contact" },
 ];
 
@@ -25,7 +26,7 @@ export default function Navbar() {
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    id: string
+    id: string,
   ) => {
     e.preventDefault();
     scrollToId(id, 80);

@@ -1,13 +1,12 @@
 import * as React from "react";
-
-import { EmailTemplateProps } from "@/types/email";
+import { ContactSchemaType } from "@/lib/validation/contact";
 
 export function EmailTemplate({
   name,
   email,
   projectType,
   message,
-}: EmailTemplateProps) {
+}: ContactSchemaType) {
   return (
     <div>
       <h1>New Contact Form Submission</h1>

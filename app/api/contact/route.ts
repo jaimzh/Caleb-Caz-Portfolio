@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { EmailTemplate } from "@/components/emails/contact-email";
-import type { EmailTemplateProps } from "@/types/email";
+import { contactSchema } from "@/lib/validation/contact";
 
 export const runtime = "nodejs";
 
@@ -9,20 +9,24 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   try {
-    const body = (await req.json()) as EmailTemplateProps;
-    const { name, email, projectType, message, company } = body;
+    const body = await req.json();
 
-    // Honeypot check: If the hidden 'company' field is filled, it's a bot.
-    if (company && company.trim()) {
-      console.log("Honeypot triggered, ignoring request.");
-      return NextResponse.json({ ok: true });
-    }
+    const validatedBody = contactSchema.safeParse(body);
 
-    if (!name || !email || !message) {
+    if (!validatedBody.success) {
       return NextResponse.json(
-        { ok: false, error: "Missing required fields." },
+        {
+          ok: false,
+          error: validatedBody.error.format()._errors[0] || "Invalid request.",
+        },
         { status: 400 },
       );
+    }
+
+    const { name, email, projectType, message, company } = validatedBody.data;
+
+    if (company && company.trim()) {
+      return NextResponse.json({ ok: true });
     }
 
     const from =
@@ -34,7 +38,7 @@ export async function POST(req: Request) {
       to: [to],
       replyTo: email,
       subject: `New Contact: ${name} - ${projectType}`,
-      react: EmailTemplate({ name, email, projectType, message }),
+      react: EmailTemplate({ name, email, projectType, message, company }),
     });
 
     if (error) {

@@ -5,13 +5,19 @@ import { Send, ChevronDown, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { EmailTemplateProps } from "@/types/email";
+import { ContactSchemaType } from "@/lib/validation/contact";
 
-const PROJECT_TYPES = ["Commercial", "Animation", "Narration", "Other"];
+const PROJECT_TYPES: ContactSchemaType["projectType"][] = [
+  "Commercial",
+  "Animation",
+  "Narration",
+  "Other",
+];
 
 export function ContactForm() {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedType, setSelectedType] = useState("Commercial");
+  const [selectedType, setSelectedType] =
+    useState<ContactSchemaType["projectType"]>("Commercial");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -40,12 +46,12 @@ export function ContactForm() {
     setIsSubmitting(true);
     setStatus("idle");
 
-    const payload: EmailTemplateProps = {
+    const payload: ContactSchemaType = {
       name: name.trim(),
       email: email.trim(),
       projectType: selectedType,
       message: message.trim(),
-      company
+      company,
     };
 
     try {
