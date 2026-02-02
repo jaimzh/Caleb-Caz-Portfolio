@@ -1,0 +1,46 @@
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
+import { containerVariants, itemVariants } from "@/lib/animations";
+import BentoCollabs from "./bento-collabs";
+import { AnimatedHeading } from "@/components/ui/animated-heading";
+import { BentoItem } from "./data";
+
+interface CollaborationsClientProps {
+  items: BentoItem[];
+}
+
+export function CollaborationsClient({ items }: CollaborationsClientProps) {
+  return (
+    <section id="collaborations" className=" w-full py-6   ">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        className="max-w-6xl mx-auto flex flex-col items-center gap-12"
+      >
+        <motion.div
+          variants={itemVariants}
+          className="text-center flex flex-col items-center"
+        >
+          <AnimatedHeading heading="Collaborations" />
+          <p className="max-w-2xl">
+            A glimpse into the incredible projects and partners I&apos;ve had
+            the pleasure of working with.
+          </p>
+        </motion.div>
+
+        {/* Bento Grid Section */}
+        {items.length > 0 ? (
+          <BentoCollabs items={items} />
+        ) : (
+          <div className="w-full text-center py-20">
+            No collaborations found.
+          </div>
+        )}
+      </motion.div>
+    </section>
+  );
+}

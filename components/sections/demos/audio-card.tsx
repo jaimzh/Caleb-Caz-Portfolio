@@ -154,7 +154,7 @@ export function AudioCard({ audioSrc, title }: AudioCardProps) {
                 e.preventDefault();
                 audio.currentTime = Math.min(
                   audio.duration,
-                  audio.currentTime + 5
+                  audio.currentTime + 5,
                 );
               } else if (e.key === "ArrowLeft") {
                 e.preventDefault();

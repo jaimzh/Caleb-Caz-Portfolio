@@ -1,56 +1,43 @@
-"use client";
-
 import React from "react";
-import { motion } from "framer-motion";
-import { AGENCIES } from "./data";
-import { RepresentationCard } from "./representation-card";
-import { staggerContainer, fadeIn, containerVariants, itemVariants } from "@/lib/animations";
-import { AnimatedHeading } from "@/components/ui/animated-heading";
+import { client } from "@/sanity/lib/client";
+import { AGENCIES, Agency } from "./data";
+import { RepresentationClient } from "./representation-client";
+import { urlFor } from "@/sanity/lib/image";
 
-export default function Representation() {
-  return (
-    <section id="representation" className="w-full py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        <motion.div 
-          variants={containerVariants}
-         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-          
-          className="flex flex-col items-center"
-        >
-          <motion.div variants={itemVariants} className="mb-16 text-center">
-             <AnimatedHeading heading="Representation" />
-             <p className="max-w-2xl">
-            Details on my professional representation and the agencies that handle bookings and enquiries.
-          </p>
-          </motion.div>
+export default async function Representation() {
+  let agencies: Agency[] = [];
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-            <motion.div variants={itemVariants}>
-              <RepresentationCard 
-                agency={AGENCIES[0]} 
-                classname=" scale-140"
-               
-              />
-            </motion.div>
+  try {
+    const query = `*[_type == "representation"] | order(order asc) {
+      _id,
+      agencyName,
+      location,
+      phoneNumber,
+      agentName,
+      websiteUrl,
+      logo
+    }`;
 
-            <motion.div variants={itemVariants}>
-              <RepresentationCard 
-                agency={AGENCIES[1]} 
-                classname="invert dark:invert-0"
-              />
-            </motion.div>
+    // Opt out of caching based on your preference or use next: { revalidate: 60 }
+    const data = await client.fetch(query, {}, { cache: "no-store" });
 
-            <motion.div variants={itemVariants}>
-              <RepresentationCard 
-                agency={AGENCIES[2]} 
-               
-              />
-            </motion.div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
+    if (data && data.length > 0) {
+      agencies = data.map((item: any, index: number) => ({
+        id: index + 1,
+        name: item.agencyName,
+        location: item.location,
+        phone: item.phoneNumber,
+        agent: item.agentName,
+        url: item.websiteUrl,
+        logo: item.logo ? urlFor(item.logo).url() : "",
+      }));
+    } else {
+      agencies = AGENCIES;
+    }
+  } catch (error) {
+    console.error("Failed to fetch representation:", error);
+    agencies = AGENCIES;
+  }
+
+  return <RepresentationClient agencies={agencies} />;
 }

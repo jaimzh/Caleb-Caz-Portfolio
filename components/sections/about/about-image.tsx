@@ -7,7 +7,7 @@ import { fadeIn } from "@/lib/animations";
 
 export function AboutImage() {
   return (
-    <motion.div variants={fadeIn("right")}>
+    <motion.div variants={fadeIn("right", 0.5)}>
       <div className="relative w-[clamp(300px,40vw,500px)] aspect-square overflow-hidden rounded-3xl bg-none">
         <Image
           src="/images/Caleb svg.svg"
@@ -16,15 +16,12 @@ export function AboutImage() {
           className="object-cover scale-110 dark:opacity-80"
           priority
         />
-     
-        <div className="absolute inset-x-0 bottom-0 h-20 bg-linear-to-t from-bg to-transparent pointer-events-none z-10 "  />
+
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-linear-to-t from-bg to-transparent pointer-events-none z-10 " />
       </div>
     </motion.div>
   );
 }
-
-
-
 
 // "use client";
 
@@ -44,10 +41,9 @@ export function AboutImage() {
 //           className="object-cover scale-110 dark:opacity-80"
 //           priority
 //         />
-     
+
 //         <div className="absolute inset-x-0 bottom-0 h-20 bg-linear-to-t from-bg to-transparent pointer-events-none z-10 "  />
 //       </div>
 //     </motion.div>
 //   );
 // }
-
