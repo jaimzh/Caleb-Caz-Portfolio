@@ -22,7 +22,9 @@ export function ContactForm() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "success" | "error" | "rate-limit"
+  >("idle");
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   //honeypot hehehe
@@ -70,7 +72,11 @@ export function ContactForm() {
         setMessage("");
         setSelectedType("Commercial");
       } else {
-        setStatus("error");
+        if (res.status === 429) {
+          setStatus("rate-limit");
+        } else {
+          setStatus("error");
+        }
       }
     } catch (error) {
       console.error("SUBMISSION ERROR:", error);
@@ -237,7 +243,7 @@ export function ContactForm() {
           <motion.p
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-green-500 font-medium text-sm mt-4 sm:mt-0"
+            className="text-green-500 font-medium text-sm mt-0 sm:mt-4 "
           >
             Message sent successfully!
           </motion.p>
@@ -246,9 +252,18 @@ export function ContactForm() {
           <motion.p
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-red-500 font-medium text-sm mt-4 sm:mt-0"
+            className="text-red-500 font-medium text-sm mt-0 sm:mt-4 "
           >
             Something went wrong. Please try again.
+          </motion.p>
+        )}
+        {status === "rate-limit" && (
+          <motion.p
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="text-amber-500 font-medium text-sm mt-0 sm:mt-4 "
+          >
+            Too many requests. Please try again later.
           </motion.p>
         )}
       </div>
