@@ -4,11 +4,15 @@ import React from "react";
 import { motion } from "framer-motion";
 import { staggerContainer } from "@/lib/animations";
 import { AboutImage } from "./about-image";
-import { AboutInfo } from "./about-info";
+import { AboutInfoClient } from "./about-info-client";
 import { Stroke } from "@/components/ui/stroke";
 import { Strokee } from "@/components/ui/strokke";
 
-export default function About() {
+interface AboutProps {
+  description: string;
+}
+
+export default function About({ description }: AboutProps) {
   return (
     <section id="about" className="w-full pt-0 md:py-20 px-6  ">
       {/* this is stroke 
@@ -26,7 +30,7 @@ export default function About() {
 
         {/* Mobile overlay width master */}
         <div className="flex justify-center items-center relative -mt-20 md:mt-0 md:static z-20 p-7        xs:w-[clamp(100%,90vw,600px)]  max-w-[500px] md:max-w-[600px] transition-all duration-500 ease-in-out">
-          <AboutInfo />
+          <AboutInfoClient description={description} />
         </div>
       </motion.div>
     </section>

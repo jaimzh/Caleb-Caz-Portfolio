@@ -17,9 +17,17 @@ export default async function Page() {
       socialMedia
     }`;
 
-  let contactData = await client
-    .fetch(contactQuery, {}, { cache: "no-store" })
-    .catch(() => null);
+  const aboutQuery = `*[_type == "aboutInfo"][0]{description}`;
+
+  const [contactDataRes, aboutDataRes] = await Promise.all([
+    client.fetch(contactQuery, {}, { cache: "no-store" }).catch(() => null),
+    client.fetch(aboutQuery, {}, { cache: "no-store" }).catch(() => null),
+  ]);
+
+  let contactData = contactDataRes;
+  const aboutDescription =
+    aboutDataRes?.description ||
+    "Caleb Caz is a New York–based voice actor with a focus in audiobooks, commercials video games, animations and more. Beyond the mic, he crafts original music jingles, immersive soundscapes, and foley. Collaborations include media companies Sling TV, Genshin Impact as well as YouTubers Comical Realm Animations and Slug Films alongside creators such as Jaimz Art, JollyShow and 360 Animations.";
 
   if (!contactData) {
     contactData = {
@@ -37,7 +45,7 @@ export default async function Page() {
   return (
     <ContactProvider data={contactData}>
       <div className="relative min-h-screen flex flex-col items-center overflow-hidden">
-        <About />
+        <About description={aboutDescription} />
         <SectionDivider />
         <Demos />
         <SectionDivider />
