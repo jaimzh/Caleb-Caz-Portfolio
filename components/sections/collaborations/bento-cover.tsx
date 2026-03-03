@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import { BentoItem } from "./data";
+import Image from "next/image";
 
 interface BentoCoverProps {
   item: BentoItem;
@@ -19,10 +20,12 @@ export const BentoCover = ({ item, onPlay }: BentoCoverProps) => {
       exit={{ opacity: 0 }}
       className="w-full h-full relative"
     >
-      <img
+      <Image
         src={item.thumbnail}
         alt={item.title}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+        fill
+        className="object-cover transition-transform duration-1000 group-hover:scale-105"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
 
       {/* Theme-aware Overlays */}

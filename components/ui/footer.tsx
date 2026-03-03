@@ -2,7 +2,7 @@
 
 import React, { use } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpFromDotIcon, Github, Heart } from "lucide-react";
+import { ArrowUpFromDotIcon, Github, Heart, Mail } from "lucide-react";
 import { useScrollTo } from "@/hooks/useScrollTo";
 import { off } from "process";
 
@@ -23,11 +23,12 @@ export function Footer() {
           <span>Made by</span>
 
           <a
-            href="#"
+          // href to mmy email is jaimz@jaimz.dev
+            href="mailto:jaimzh03@gmail.com"
             className="text-text hover:text-primary transition-colors flex items-center gap-1.5"
           >
             Jaimz 🦖
-            <Github
+            <Mail
               size={14}
               className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
             />
