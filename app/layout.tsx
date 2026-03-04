@@ -76,6 +76,9 @@ export const metadata: Metadata = {
       "New York-based voice actor Caleb Casemento specializing in audiobooks, commercials, and video games.",
     images: ["/images/og-image.png"],
   },
+  verification: {
+    google: "aNcwxSgzUwTYpkOs5KyWRsmsTtiXTrtKLBu0ZJj-DWQ",
+  },
   robots: {
     index: true,
     follow: true,
