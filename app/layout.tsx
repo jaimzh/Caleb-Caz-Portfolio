@@ -24,8 +24,8 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   metadataBase: new URL("https://calebcaz.com"),
   title: {
-    default: "Caleb Casamento | Professional Voice Actor",
-    template: "%s | Caleb Casamento",
+    default: "Caleb Caz Voices",
+    template: "%s | Caleb Caz Voices",
   },
   description:
     "Caleb Casamento is a professional voice actor specializing in audiobooks, commercials, video games, and animation. High-quality VO from a New York-based talent.",
@@ -53,17 +53,17 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Caleb Casamento | Professional Voice Actor",
+    title: "Caleb Caz Voices",
     description:
       "New York-based voice actor Caleb Casamento specializing in audiobooks, commercials, and video games.",
     url: "https://calebcaz.com",
-    siteName: "Caleb Casamento",
+    siteName: "Caleb Caz Voices",
     images: [
       {
         url: "/images/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Caleb Casamento - Professional Voice Actor",
+        alt: "Caleb Caz Voices - Professional Voice Actor",
       },
     ],
     locale: "en_US",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Caleb Casamento | Professional Voice Actor",
+    title: "Caleb Caz Voices",
     description:
       "New York-based voice actor Caleb Casamento specializing in audiobooks, commercials, and video games.",
     images: ["/images/og-image.png"],
