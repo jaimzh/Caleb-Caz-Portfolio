@@ -14,11 +14,11 @@ export default async function JsonLd() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Caleb Casemento",
+    name: "Caleb Casamento",
     url: "https://calebcaz.com",
     jobTitle: "Professional Voice Actor",
     description:
-      "Caleb Casemento is a professional voice actor specializing in audiobooks, commercials, video games, and animation.",
+      "Caleb Casamento is a professional voice actor specializing in audiobooks, commercials, video games, and animation.",
     sameAs: [
       contactData?.socialMedia?.instagram ||
         "https://www.instagram.com/calebcaz/",

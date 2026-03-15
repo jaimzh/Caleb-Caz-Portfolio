@@ -24,24 +24,24 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   metadataBase: new URL("https://calebcaz.com"),
   title: {
-    default: "Caleb Casemento | Professional Voice Actor",
-    template: "%s | Caleb Casemento",
+    default: "Caleb Casamento | Professional Voice Actor",
+    template: "%s | Caleb Casamento",
   },
   description:
-    "Caleb Casemento is a professional voice actor specializing in audiobooks, commercials, video games, and animation. High-quality VO from a New York-based talent.",
+    "Caleb Casamento is a professional voice actor specializing in audiobooks, commercials, video games, and animation. High-quality VO from a New York-based talent.",
   keywords: [
     "voice actor",
     "VO artist",
-    "Caleb Casemento",
+    "Caleb Casamento",
     "Caleb Caz",
     "audiobook narrator",
     "commercial voice",
     "video game voice",
     "animation voice talent",
   ],
-  authors: [{ name: "Caleb Casemento" }],
-  creator: "Caleb Casemento",
-  publisher: "Caleb Casemento",
+  authors: [{ name: "Caleb Casamento" }],
+  creator: "Caleb Casamento",
+  publisher: "Caleb Casamento",
   formatDetection: {
     email: false,
     address: false,
@@ -53,17 +53,17 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Caleb Casemento | Professional Voice Actor",
+    title: "Caleb Casamento | Professional Voice Actor",
     description:
-      "New York-based voice actor Caleb Casemento specializing in audiobooks, commercials, and video games.",
+      "New York-based voice actor Caleb Casamento specializing in audiobooks, commercials, and video games.",
     url: "https://calebcaz.com",
-    siteName: "Caleb Casemento",
+    siteName: "Caleb Casamento",
     images: [
       {
         url: "/images/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Caleb Casemento - Professional Voice Actor",
+        alt: "Caleb Casamento - Professional Voice Actor",
       },
     ],
     locale: "en_US",
@@ -71,9 +71,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Caleb Casemento | Professional Voice Actor",
+    title: "Caleb Casamento | Professional Voice Actor",
     description:
-      "New York-based voice actor Caleb Casemento specializing in audiobooks, commercials, and video games.",
+      "New York-based voice actor Caleb Casamento specializing in audiobooks, commercials, and video games.",
     images: ["/images/og-image.png"],
   },
   verification: {

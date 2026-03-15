@@ -2,10 +2,10 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Caleb Casemento | Voice Actor",
-    short_name: "Caleb Casemento",
+    name: "Caleb Casamento | Voice Actor",
+    short_name: "Caleb Casamento",
     description:
-      "Voice actor portfolio for Caleb Casemento, specializing in audiobooks, commercials, video games, and animation.",
+      "Voice actor portfolio for Caleb Casamento, specializing in audiobooks, commercials, video games, and animation.",
     start_url: "/",
     display: "standalone",
     background_color: "#000000",
