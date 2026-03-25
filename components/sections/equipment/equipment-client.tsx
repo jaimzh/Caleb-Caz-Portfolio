@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { containerVariants, itemVariants } from "@/lib/animations";
 import { AnimatedHeading } from "@/components/ui/animated-heading";
-import { Mic2, Laptop, Settings, Disc, Monitor } from "lucide-react";
+import { Microphone, Laptop, SpeakerHigh, Gear } from "phosphor-react";
 
 export interface EquipmentData {
   microphone?: string;
@@ -24,7 +24,7 @@ export default function EquipmentClient({ data }: EquipmentClientProps) {
     {
       category: "Microphone",
       items: data.microphone,
-      icon: Mic2,
+      icon: Microphone,
     },
     {
       category: "DAW",
@@ -34,12 +34,12 @@ export default function EquipmentClient({ data }: EquipmentClientProps) {
     {
       category: "Interface",
       items: data.interface,
-      icon: Disc,
+      icon: SpeakerHigh,
     },
     {
       category: "Set Up",
       items: data.setup,
-      icon: Settings,
+      icon: Gear,
     },
   ].filter((item) => item.items); // Only show categories that have content
 
@@ -72,8 +72,8 @@ export default function EquipmentClient({ data }: EquipmentClientProps) {
                 variants={itemVariants}
                 className="caleb-card group flex flex-col items-center p-8 h-full"
               >
-                <div className="mb-4 p-4 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors">
-                  <item.icon className="size-8 text-primary" />
+                <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <item.icon className="size-10 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">{item.category}</h3>
                 <p className="text-text-muted text-center">{item.items}</p>
