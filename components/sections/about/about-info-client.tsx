@@ -16,7 +16,7 @@ export function AboutInfoClient({ description }: AboutInfoClientProps) {
   const { scrollToId } = useScrollTo();
 
   return (
-     <motion.div
+    <motion.div
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -42,7 +42,7 @@ export function AboutInfoClient({ description }: AboutInfoClientProps) {
 
       <motion.div variants={itemVariants}>
         <Button
-          className="px-10 py-6 rounded-full font-semibold mt-4"
+          className="px-10 py-6 rounded-full font-semibold mt-4 cursor-pointer"
           variant="btn-caleb"
           size="lg"
           onClick={() => {

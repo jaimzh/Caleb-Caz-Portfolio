@@ -88,7 +88,7 @@ export default function Navbar() {
             <Button
               asChild
               variant="btn-caleb2"
-              className="hidden md:inline-flex rounded-full px-5"
+              className="hidden md:inline-flex rounded-full px-5 cursor-pointer"
               onClick={() => {
                 scrollToId("contact", 80);
               }}

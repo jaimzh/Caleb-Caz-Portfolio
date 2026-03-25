@@ -106,7 +106,7 @@ export function AudioCard({ audioSrc, title }: AudioCardProps) {
         {/* Play/Pause Button */}
         <button
           onClick={togglePlay}
-          className="shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-text text-bg hover:scale-105 active:scale-95 transition-all focus:outline-none shadow-md"
+          className="shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-text text-bg hover:scale-105 active:scale-95 transition-all focus:outline-none shadow-md cursor-pointer"
           aria-label={isPlaying ? "Pause" : "Play"}
         >
           <AnimatePresence mode="wait">

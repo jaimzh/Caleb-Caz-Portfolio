@@ -44,7 +44,7 @@ export const BentoCover = ({ item, onPlay }: BentoCoverProps) => {
               e.stopPropagation();
               onPlay();
             }}
-            className="w-12 h-12 flex items-center justify-center rounded-full bg-white text-black hover:scale-110 active:scale-95 transition-all shadow-xl"
+            className="w-12 h-12 flex items-center justify-center rounded-full bg-white text-black hover:scale-110 active:scale-95 transition-all shadow-xl cursor-pointer"
           >
             <Play size={20} fill="currentColor" className="ml-1" />
           </button>

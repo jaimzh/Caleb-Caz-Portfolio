@@ -28,7 +28,7 @@ export const BentoPlayer = ({ videoUrl, title, onClose }: BentoPlayerProps) => {
       {/* Close button for iframe overlay */}
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 z-40 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+        className="absolute top-4 right-4 z-40 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors cursor-pointer"
       >
         <svg
           width="20"

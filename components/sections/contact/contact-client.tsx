@@ -96,7 +96,7 @@ export default function ContactClient({ data }: ContactClientProps) {
                     style={{ height: 32, width: 32 }}
                     bgColor="var(--text)"
                     fgColor="var(--bg)"
-                    className="mx-1"
+                    className="mx-1 cursor-pointer"
                   />
                 </div>
               ))}

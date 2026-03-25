@@ -149,7 +149,7 @@ export function ContactForm() {
             type="button"
             onClick={() => setIsOpen(!isOpen)}
             className={cn(
-              "w-full bg-bg-light/30 border border-border rounded-xl py-3 px-4 text-left flex items-center justify-between transition-all duration-300",
+              "w-full bg-bg-light/30 border border-border rounded-xl py-3 px-4 text-left flex items-center justify-between transition-all duration-300 cursor-pointer",
               "hover:border-text-muted focus:outline-none focus:border-text",
               isOpen ? "border-text shadow-sm" : "shadow-none",
             )}
@@ -225,7 +225,7 @@ export function ContactForm() {
           type="submit"
           variant="caleb-slide"
           disabled={isSubmitting}
-          className="w-full sm:w-auto px-10 rounded-full group mt-4 h-12"
+          className="w-full sm:w-auto px-10 rounded-full group mt-4 h-12 cursor-pointer"
         >
           {isSubmitting ? "Sending..." : "Send Message"}
           <Send

@@ -59,7 +59,7 @@ export function RepresentationCard({
         href={agency.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="group/link flex items-center gap-2 text-sm font-semibold text-text hover:text-primary transition-colors border-b-2 border-primary/20 hover:border-primary py-1"
+        className="group/link flex items-center gap-2 text-sm font-semibold text-text hover:text-primary transition-colors border-b-2 border-primary/20 hover:border-primary py-1 cursor-pointer"
       >
         Visit Website
         <ExternalLink
