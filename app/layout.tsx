@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { flyWheel, myUglyFont } from "@/components/ui/fonts-loader";
 import JsonLd from "@/components/seo/json-ld";
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({
   variable: "--font-inter",
